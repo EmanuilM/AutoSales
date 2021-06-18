@@ -12,7 +12,7 @@ require('./server/config/db');
 require('./server/config/express')(app);
 
 console.log(process.env.NODE_ENV);
-app.use(express.static(path.join(__dirname , 'dist')));
+app.use(express.static(path.join(__dirname , 'client/dist')));
 console.log(path.join(__dirname + '/dist/client'));
 app.use(cors({
     origin: config.origin,
@@ -22,7 +22,7 @@ app.use(router);
 
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname , '..client/dist/client/index.html'));
+    res.sendFile(path.join(__dirname , 'client/index.html'));
   });
 
 
