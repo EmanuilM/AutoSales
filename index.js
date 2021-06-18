@@ -33,9 +33,9 @@ app.use(router);
 
 app.get("*", (req, res) => {
     if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-        res.sendFile(path.resolve(`.client/dist/client/${req.url}`));
+        res.sendFile(path.resolve(`..client/dist/client/${req.url}`));
     } else {
-        res.sendFile(path.join(__dirname, ".client/dist/client/index.html"));
+        res.sendFile(path.join(__dirname, "..client/dist/client/index.html"));
     }
 });
 
