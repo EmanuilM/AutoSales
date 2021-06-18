@@ -6,19 +6,13 @@ const config = require('./server/config/config');
 const path = require('path');
 
 
-const allowed = [
-    ".js",
-    ".css",
-    ".png",
-    ".jpg"
-];
 
 require('./server/config/db');
 require('./server/config/express')(app);
 
 console.log(process.env.NODE_ENV);
 app.use(express.static(path.join(__dirname, 'dist/client')));
-// app.use(express.static(path.join(__dirname , 'client/dist')));
+console.log(path.join(__dirname, 'dist/client'));
 app.use(cors({
     origin: config.origin,
     credentials: true,
@@ -26,18 +20,11 @@ app.use(cors({
 app.use(router);
 
 
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname , '../client/dist/client/index.html'));
-//   });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname , 'dist/client/index.html'));
+  });
 
 
-app.get("*", (req, res) => {
-    if (allowed.filter(ext => req.url.indexOf(ext) > 0).length > 0) {
-        res.sendFile(path.resolve(`..client/dist/client/${req.url}`));
-    } else {
-        res.sendFile(path.join(__dirname, "..client/dist/client/index.html"));
-    }
-});
 
 
  console.log(config)
