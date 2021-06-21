@@ -1,0 +1,39 @@
+
+
+.carousel-item {
+    height: 32rem;
+    background: #777;
+    color: white;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}
+
+.container { 
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 70px;
+}
+
+.last-offers { 
+    text-align: center;
+    padding-top: 30px;
+}
+
+
+.offer-card {
+    max-width: 400px;
+    float: left;
+    width: 25%;
+    padding-left: 70px;
+    margin: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+    background-color: #f1f1f1;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

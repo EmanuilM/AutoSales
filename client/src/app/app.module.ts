@@ -14,12 +14,17 @@ import { HeaderComponent } from './core/header/header.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +38,10 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     CoreModule,
     UserModule,
+    FlexLayoutModule,
+    NgbModule,
+    MatCardModule
+    
   ],
   providers: [],
   bootstrap: [
