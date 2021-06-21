@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Angular\Auto Sales\client\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Angular\asdasd\pacific-sierra-12808\client\src\polyfills.ts */"hN/g");
 
 
 /***/ }),

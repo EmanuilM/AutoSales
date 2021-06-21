@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginForm : FormGroup;
+  submitted = false;
+
+  constructor(private fb : FormBuilder , private userService : UserService) {
+    this.loginForm = fb.group({
+      username : ['' , [Validators.required] , []],
+      password : ['' , [Validators.required] , []]
+    });
+   }
 
   ngOnInit(): void {
   }
+
+  get f () {return this.loginForm.controls;}
+
+  login() { 
+    const {username , password} = this.loginForm.value;
+    this.submitted = true;
+    if(this.loginForm.invalid) { 
+      return;
+    }
+
+    this.userService.loginHandler({username , password}).subscribe(x => {
+      console.log(x);
+    })
+
+  }
+
 
 }

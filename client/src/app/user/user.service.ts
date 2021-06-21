@@ -12,4 +12,8 @@ export class UserService {
   registerHandler(formData : any) : Observable<any> { 
     return this.http.post<any>('auth/register' , formData);
   }
+
+  loginHandler(formData : any) : Observable<any> { 
+    return this.http.post<any>('auth/login' , formData);
+  }
 }

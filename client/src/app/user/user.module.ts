@@ -5,8 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { userRoutingModule } from './user-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { MatIconModule } from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
     RouterModule,
     userRoutingModule,
     HttpClientModule,
-    FormsModule,
+    ReactiveFormsModule
   ],
 })
 export class UserModule { }
