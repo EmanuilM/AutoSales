@@ -1,87 +1,102 @@
-<div class="container bg-white mt-sm-4 mb-5">
-
-    <div class="d-lg-flex align-items-center">
-
-
-        <div class="wrapper d-flex justify-content-center flex-column px-md-5 px-1">
-
-            <div class="h3 text-center font-weight-bold">Create your offer</div>
-
-            <div class="row my-4">
-                <div class="col-md-6">
-                    <label>Brand</label>
-                    <input type="text" placeholder="BMW">
+<div class="content">
+    <form action="">
+        <div class="wrapper rounded bg-white">
+            <div class="h3">Create your offer</div>
+            <div class="form">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" name="brand" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Model</label>
+                        <input type="text" class="form-control" name="model" required>
+                    </div>
                 </div>
-                <div class="col-md-6 pt-md-0 pt-4">
-                    <label>Model</label>
-                    <input type="text" placeholder="E46">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Year</label>
+                        <input type="date" class="form-control" name="year" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Color</label>
+                        <input type="text" class="form-control" name="color" required>
+                    </div>
                 </div>
-            </div>
-            <div class="row my-md-4 my-2">
-                <div class="col-md-6">
-                    <label>Power</label>
-                    <input placeholder="130">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Power</label>
+                        <input type="text" class="form-control" name="power" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Мileage</label>
+                        <input type="text" class="form-control" name="mileage" required>
+                    </div>
                 </div>
-                <div class="col-md-6 pt-md-0 pt-4">
-                    <label>Phone</label>
-                    <input placeholder="7777777777">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Populated place</label>
+                        <input type="email" class="form-control" name="city" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Price</label>
+                        <input type="tel" class="form-control" name="price" required>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row my-4">
-                <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Doors</label>
+                        <input type="email" class="form-control" name="doors" required>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <label>Condition</label>
+                    <div class="d-flex align-items-center mt-2">
+                        <label class="option">
+                            <input type="radio" name="condition">New
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="option ms-4">
+                            <input type="radio" name="condition">Used
+                            <span class="checkmark">
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                <div class=" my-md-2 my-3">
                     <label>Тransmission</label>
-                    <input type="text" placeholder="Manual gearbox">
+                    <select id="sub" name="transmission" required>
+                        <option value="" selected hidden>Choose transmission</option>
+                        <option>Automatic gearbox</option>
+                        <option>Manual gearbox</option>
+                        <option>Semi-automatic transmission</option>
+                    </select>
                 </div>
-                <div class="col-md-6 pt-md-0 pt-4"> <label>Mileage</label>
-                    <input type="text" placeholder="100000">
+                <div class=" my-md-2 my-3">
+                    <label>Engine Type</label>
+                    <select id="sub" name="engineType" required>
+                        <option value="" selected hidden>Choose engine type</option>
+                        <option>Gas</option>
+                        <option>Gas/Gasoline</option>
+                        <option>Disel</option>
+                        <option>Methane</option>
+                    </select>
                 </div>
-            </div>
-
-            <div class="row my-4">
-                <div class="col-md-6">
-                    <label>Populated place</label>
-                    <input type="text" placeholder="Sofia">
-                </div>
-                <div class="col-md-6 pt-md-0 pt-4"> <label>Color</label>
-                    <input type="text" placeholder="White">
-                </div>
-            </div>
-
-            <div class="row my-4">
-                <div class="col-md-6">
-                    <label>Price</label>
-                    <input type="text" placeholder="7000">
-                </div>
-                <div class="col-md-6 pt-md-0 pt-4">
-                    <label>Category</label>
-                    <select name="" id="select">
+                <div class=" my-md-2 my-3">
+                    <label>Categoty</label>
+                    <select id="sub" name="categoty" required>
+                        <option value="" selected hidden>Choose category</option>
                         <option>Sedan</option>
                         <option>Jeep</option>
-                        <option>Station wagon</option>
+                        <option>Van</option>
+                        <option>Convertible</option>
+                        <option>Station Wagon</option>
                         <option>Coupe</option>
                         <option>Hatchback</option>
                     </select>
                 </div>
-
+                <button class="btn btn-primary mt-3">Create your offer</button>
             </div>
-
-            <div class="row my-md-4 my-2">
-                <div class="col-md-6"> <label>Year</label>
-                    <input placeholder="1999">
-                </div>
-
-                <div class="col-md-6 pt-md-0 pt-4"> <label>Type of engine</label> <select name="engineType" id="select">
-                        <option value="ind">Gas</option>
-                        <option value="us">Gasoline</option>
-                        <option value="us">Gas/Gasoline</option>
-                        <option value="uk">Methane</option>
-                    </select>
-                </div>
-                <div class="d-flex justify-content-end">
-                    <button class="btn">Create Offer</button>
-                </div>
-            </div>
-
-
         </div>
+    </form>
+</div>
