@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get f () {return this.loginForm.controls;}
+  get f () {return this.loginForm.controls};
 
   login() { 
     const {username , password} = this.loginForm.value;
@@ -32,6 +32,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.loginHandler({username , password}).subscribe(x => {
+      if(x) { 
+        this.userService.isAuth = true;
+      }
       console.log(x);
     })
 

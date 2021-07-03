@@ -8,12 +8,19 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   constructor(private http: HttpClient) { }
+  isAuth = !!localStorage.getItem('isLogged');
+
 
   registerHandler(formData : any) : Observable<any> { 
     return this.http.post<any>('auth/register' , formData);
   }
 
   loginHandler(formData : any) : Observable<any> { 
+    localStorage.setItem('isLogged' , 'true');
     return this.http.post<any>('auth/login' , formData);
   }
+
+  
+
+  
 }

@@ -17,7 +17,6 @@ require('./server/config/express')(app);
 
 console.log(process.env.NODE_ENV);
 app.use(express.static(path.join(__dirname, 'dist/client')));
-// app.use(express.static(path.join(__dirname, 'dist/client')));
 console.log(path.join(__dirname, 'dist/client'));
 app.use(cors({
     origin: config.origin,
@@ -25,10 +24,6 @@ app.use(cors({
 }))
 app.use(router);
 
-
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname , 'client/dist/client/index.html'));
-//   });
 
 
 app.get("*", (req, res) => {

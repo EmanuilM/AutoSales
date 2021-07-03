@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
     this.registerForm = fb.group({
       username : ['' , [Validators.required , Validators.minLength(4)] , []],
       password : ['' , [Validators.required , Validators.minLength(4)] , []],
-      rePassword : ['' , [Validators.required]],
+      rePassword : ['' , [Validators.required] , []],
+      email : ['' , [Validators.required , Validators.email , Validators.minLength(4)] , []],
+      phoneNumber : ['' , [Validators.required , Validators.minLength(10)] , []],
     } , {validator: MustMatch('password', 'rePassword')});
   }
 
@@ -30,18 +32,16 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+  
   get f () {return this.registerForm.controls;}
 
 
  register()  { 
-  const {username , password , rePassword} = this.registerForm.value;
-  
   this.submitted = true;
     if(this.registerForm.invalid) { 
       return;
     }
-   this.userService.registerHandler({username , password , rePassword}).subscribe(x => {
+   this.userService.registerHandler(this.registerForm.value).subscribe(x => {
      console.log(x);
    })
  }
