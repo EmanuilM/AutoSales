@@ -29,7 +29,7 @@ import { MaterialModule } from './material/material.module';
   providers: [],
   bootstrap: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
   ]
 })
 export class AppModule { }

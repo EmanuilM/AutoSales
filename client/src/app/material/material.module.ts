@@ -11,6 +11,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -26,8 +27,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FlexLayoutModule,
     LayoutModule,
     BrowserAnimationsModule,
-
-
   ]
 })
 export class MaterialModule { }

@@ -48,6 +48,10 @@
                         <label>Doors</label>
                         <input type="email" class="form-control" name="doors" required>
                     </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Description</label>
+                        <input type="email" class="form-control" name="doors" required>
+                    </div>
                 </div>
                 <div class="col-md-6 mt-md-0 mt-3">
                     <label>Condition</label>
@@ -76,10 +80,11 @@
                     <label>Engine Type</label>
                     <select id="sub" name="engineType" required>
                         <option value="" selected hidden>Choose engine type</option>
-                        <option>Gas</option>
-                        <option>Gas/Gasoline</option>
+                        <option>Petrol</option>
                         <option>Disel</option>
+                        <option>Petrol+CNG</option>
                         <option>Methane</option>
+                        <option>Electric</option>
                     </select>
                 </div>
                 <div class=" my-md-2 my-3">
@@ -95,6 +100,8 @@
                         <option>Hatchback</option>
                     </select>
                 </div>
+                <!-- <input type="hidden" role="uploadcare-uploader" name="my_file" /> -->
+                <input type="hidden" role="uploadcare-uploader" name="my_files" data-multiple="true"/>
                 <button class="btn btn-primary mt-3">Create your offer</button>
             </div>
         </div>

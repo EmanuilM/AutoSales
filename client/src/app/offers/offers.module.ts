@@ -4,12 +4,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateComponent } from './create/create.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { offersRoutingModule } from './offers-routing.module';
+import { ListComponent } from './list/list.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
 @NgModule({
   declarations: [
-    CreateComponent
+    CreateComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
