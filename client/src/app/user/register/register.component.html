@@ -1,50 +1,81 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()">
-	<div class="register-wrap">
-		<div class="register-html">
-			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-			<div class="register-form">
-				<div class="sign-up-htm">
-					<div class="group">
-						<label for="email" class="label">Email</label>
-						<input  formControlName="email" id="email" type="text" class="input" name="email">
-						<div class="error-message" *ngIf="submitted && f.email.errors?.required">Email is required!</div>
-						<div class="error-message" *ngIf="submitted && f.email.errors?.minlength">Email must be at least 4 characters long!</div> 
-						<div class="error-message" *ngIf="submitted && f.email.errors?.email">Invalid email!</div> 
-					</div>
-					<div class="group">
-						<label for="phoneNumber" class="label">Phone number</label>
-						<input  formControlName="phoneNumber" id="phoneNumber" type="text" class="input" name="phoneNumber">
-						 <div class="error-message" *ngIf="submitted && f.phoneNumber.errors?.required">Phone number is required!</div>
-						<div class="error-message" *ngIf="submitted && f.phoneNumber.errors?.minlength">Phone number must be at least 10 characters long!</div>
-					</div>
-					<div class="group">
-						<label for="user" class="label">Username</label>
-						<input  formControlName="username" id="user" type="text" class="input" name="username">
-						<div class="error-message" *ngIf="submitted && f.username.errors?.required">Username is required!</div>
-						<div class="error-message" *ngIf="submitted && f.username.errors?.minlength">Username must be at least 4 characters long!</div>
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input formControlName="password" type="password" class="input" data-type="password" name="password">
-						<div class="error-message" *ngIf="submitted && f.password.errors?.required">Password is required!</div>
-						<div class="error-message" *ngIf="submitted && f.password.errors?.minlength">Password must be at least 4 characters long!!</div>
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Repeat Password</label>
-						<input formControlName="rePassword" type="password" class="input" data-type="password" name="rePassword" >
-						<div class="error-message" *ngIf="submitted && f.rePassword.errors?.required">Please repeat your password!</div>
-						<div class="error-message" *ngIf="submitted && f.rePassword.errors?.mustMatch">Passwords do not match!</div>
-					</div>
-					<div class="group">
-						<button class="button">Register</button>
-					</div>
-					<div class="hr"></div>
-					<div class="foot-lnk">
-						<a routerLink="/user/login">Already Member?</a>
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="content">
+	<div class="wrapper">
+	   <form [formGroup]="registerForm" (ngSubmit)="register()">
+	   <div class="h5 font-weight-bold text-center mb-3">Register</div>
+	   <div class="email">
+		  <div class="form-group d-flex align-items-center">
+			 <div class="icon">
+				<span class="far fa-envelope">
+				</span>
+			 </div>
+			 <input formControlName="email" type="email" class="form-control" placeholder="Email" name="email">
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.email.errors?.required">Email is required!</div>
+		  <div class="error-message" *ngIf="submitted && f.email.errors?.minlength">Email must be at least 4 characters long!
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.email.errors?.email">Invalid email!</div>
+	   </div>
+	   <div class="username">
+		  <div class="form-group d-flex align-items-center">
+			 <div class="icon">
+				<span class="far fa-user">
+				</span>
+			 </div>
+			 <input formControlName="username" type="text" class="form-control" placeholder="Username"
+				name="username">
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.username.errors?.required">Username is required!</div>
+		  <div class="error-message" *ngIf="submitted && f.username.errors?.minlength">Username must be at least 4 characters long!</div>
+	   </div>
+	   <div class="phoneNumber">
+		  <div class="form-group d-flex align-items-center">
+			 <div class="icon">
+				<span class="fas fa-phone">
+				</span>
+			 </div>
+			 <input formControlName="phoneNumber" class="form-control" placeholder="Phone" name="phoneNumber">
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.phoneNumber.errors?.required">Phone number is required!
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.phoneNumber.errors?.minlength">Phone number must be at least 10 characters long!</div>
+	   </div>
+	   <div class="password">
+		  <div class="form-group d-flex align-items-center">
+			 <div class="icon">
+				<span class="fas fa-key">
+				</span>
+			 </div>
+			 <input formControlName="password" type="password" class="form-control" placeholder="Password"
+				name="password">
+			 <div class="icon btn">
+				<span class="fas fa-eye-slash">
+				</span>
+			 </div>
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.password.errors?.required">Password is required!</div>
+		  <div class="error-message" *ngIf="submitted && f.password.errors?.minlength">Password must be at least 4
+			 characters long!!
+		  </div>
+	   </div>
+	   <div class="rePassword">
+		  <div class="form-group d-flex align-items-center">
+			 <div class="icon">
+				<span class="fas fa-key">
+				</span>
+			 </div>
+			 <input formControlName="rePassword" type="password" class="form-control" placeholder="Repeat Password"
+				name="rePassword">
+			 <div class="icon btn">
+				<span class="fas fa-eye-slash">
+				</span>
+			 </div>
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.rePassword.errors?.required">Please repeat your password!
+		  </div>
+		  <div class="error-message" *ngIf="submitted && f.rePassword.errors?.mustMatch">Passwords do not match!</div>
+	   </div>
+	   <button class="btn btn-primary mb-3">Sign up</button>
+	   <div class="text mb-2">You already have an account?<a routerLink="/auth/login">Sign in right now</a>. </div>
+	   </form>
 	</div>
-</form>
-
+ </div>

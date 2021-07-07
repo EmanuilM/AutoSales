@@ -97,6 +97,10 @@
     outline: none
 }
 
+.file-input { 
+    display: none;
+}
+
 @media(max-width: 768.5px) {
     .wrapper {
         margin: 0px
@@ -121,3 +125,4 @@
         margin: 0px;
     }
 }
+

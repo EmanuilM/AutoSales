@@ -1,10 +1,10 @@
 const { Router } = require('express');
 const router = Router();
-const offerService = require('../services/offerService');
+const offerService = require('../services/offersService');
 
 router.post('/create', async (req, res) => {
     try {
-        await offerService.createCarOffer(req.body);
+        await offerService.createOffer(req.body);
     } catch (err) {
         res.status(400).json(err);
     }

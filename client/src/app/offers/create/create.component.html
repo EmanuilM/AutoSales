@@ -1,75 +1,69 @@
 <div class="content">
-    <form action="">
+    <form #f="ngForm" (ngSubmit)="create(f.value)">
         <div class="wrapper rounded bg-white">
             <div class="h3">Create your offer</div>
             <div class="form">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Brand</label>
-                        <input type="text" class="form-control" name="brand" required>
+                        <input type="text" class="form-control" name="brand" ngModel required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Model</label>
-                        <input type="text" class="form-control" name="model" required>
+                        <input type="text" class="form-control" name="model" ngModel required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Year</label>
-                        <input type="date" class="form-control" name="year" required>
+                        <input type="date" class="form-control" name="year" ngModel required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Color</label>
-                        <input type="text" class="form-control" name="color" required>
+                        <input type="text" class="form-control" name="color" ngModel required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Power</label>
-                        <input type="text" class="form-control" name="power" required>
+                        <input type="text" class="form-control" name="power" ngModel required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Мileage</label>
-                        <input type="text" class="form-control" name="mileage" required>
+                        <input type="text" class="form-control" name="mileage" ngModel required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Populated place</label>
-                        <input type="email" class="form-control" name="city" required>
+                        <input type="text" class="form-control" name="populatedState" ngModel required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Price</label>
-                        <input type="tel" class="form-control" name="price" required>
+                        <input type="tel" class="form-control" name="price" ngModel required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Doors</label>
-                        <input type="email" class="form-control" name="doors" required>
+                        <input type="text" class="form-control" name="doors" ngModel required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Description</label>
-                        <input type="email" class="form-control" name="doors" required>
-                    </div>
-                </div>
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <label>Condition</label>
-                    <div class="d-flex align-items-center mt-2">
-                        <label class="option">
-                            <input type="radio" name="condition">New
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="option ms-4">
-                            <input type="radio" name="condition">Used
-                            <span class="checkmark">
-                            </span>
-                        </label>
+                        <input type="text" class="form-control" name="description" ngModel required>
                     </div>
                 </div>
                 <div class=" my-md-2 my-3">
+                    <label>Condition</label>
+                    <select id="sub" name="condition" ngModel required>
+                        <option value="" selected hidden>Choose condition</option>
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+                </div>
+                <div class=" my-md-2 my-3">
                     <label>Тransmission</label>
-                    <select id="sub" name="transmission" required>
+                    <select id="sub" name="transmission" ngModel required>
                         <option value="" selected hidden>Choose transmission</option>
                         <option>Automatic gearbox</option>
                         <option>Manual gearbox</option>
@@ -78,7 +72,7 @@
                 </div>
                 <div class=" my-md-2 my-3">
                     <label>Engine Type</label>
-                    <select id="sub" name="engineType" required>
+                    <select id="sub" name="engineType" ngModel required>
                         <option value="" selected hidden>Choose engine type</option>
                         <option>Petrol</option>
                         <option>Disel</option>
@@ -89,7 +83,7 @@
                 </div>
                 <div class=" my-md-2 my-3">
                     <label>Categoty</label>
-                    <select id="sub" name="categoty" required>
+                    <select id="sub" name="categoty" ngModel required>
                         <option value="" selected hidden>Choose category</option>
                         <option>Sedan</option>
                         <option>Jeep</option>
@@ -99,10 +93,9 @@
                         <option>Coupe</option>
                         <option>Hatchback</option>
                     </select>
+                    <input type="file" multiple>
                 </div>
-                <!-- <input type="hidden" role="uploadcare-uploader" name="my_file" /> -->
-                <input type="hidden" role="uploadcare-uploader" name="my_files" data-multiple="true"/>
-                <button class="btn btn-primary mt-3">Create your offer</button>
+                <button class="btn btn-primary mt-3" [disabled]="f.invalid">Create your offer</button>
             </div>
         </div>
     </form>

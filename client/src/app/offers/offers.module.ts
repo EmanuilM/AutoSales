@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { offersRoutingModule } from './offers-routing.module';
 import { ListComponent } from './list/list.component';
 import { MaterialModule } from '../material/material.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,6 +20,7 @@ import { MaterialModule } from '../material/material.module';
     HttpClientModule,
     AppRoutingModule,
     offersRoutingModule,
+    FormsModule,
   ]
 })
 export class OffersModule { }

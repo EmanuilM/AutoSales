@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component,  OnInit } from '@angular/core';
+import { Component,  Input,  OnInit } from '@angular/core';
+import { OffersService } from '../offers.service';
 
 @Component({
   selector: 'app-create',
@@ -9,14 +10,16 @@ import { Component,  OnInit } from '@angular/core';
 export class CreateComponent implements OnInit {
 
 
-  constructor(private http : HttpClient) {}
+  constructor(private http : HttpClient , private offerService : OffersService) {}
 
   ngOnInit(): void {
   }
 
- 
-
-  createOffer() { 
+  create(data:any) :any { 
+    this.offerService.createOfferHandler(data).subscribe(x => {
+      console.log(x);
+    })
+    console.log(data);
   }
 
 }

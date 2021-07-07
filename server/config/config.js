@@ -6,6 +6,9 @@ const config = {
         SALT_ROUNDS : 10,
         SECRET_WORD : 'WEBTOKEN',
         COOKIE_NAME : "SESSION_TOKEN",
+        CLOUD_NAME: "dtdz0i6at",
+        CLOUDINARY_API_KEY: "936923232219936",
+        CLOUDINARY_API_SECRET: "16BRo4xqGmyhx7TJbPoAb3hA6Mc",
     },
     production: {
         PORT: process.env.PORT || 80,
@@ -14,6 +17,9 @@ const config = {
         SALT_ROUNDS : 10,
         SECRET_WORD : 'WEBTOKEN',
         COOKIE_NAME : "SESSION_TOKEN",
+        CLOUD_NAME: "dtdz0i6at",
+        CLOUDINARY_API_KEY: "936923232219936",
+        CLOUDINARY_API_SECRET: "16BRo4xqGmyhx7TJbPoAb3hA6Mc",
     }
 };
 
