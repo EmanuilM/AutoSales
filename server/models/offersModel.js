@@ -50,11 +50,11 @@ const offerSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    categoty: {
+    category: {
         type: String,
         required: true,
     },
-    imageIds : [],
+    imageURLs : [],
     creator: {
         type: mongoose.Types.ObjectId,
         ref: 'user'

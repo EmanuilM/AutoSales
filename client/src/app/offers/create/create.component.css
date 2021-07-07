@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif
+    font-family: 'Poppins', sans-serif;
 }
 
 .content {
@@ -11,7 +11,15 @@
     /* background-repeat: no-repeat; */
     background-size: 100% 100%;
     height: 93.4%;
+    overflow: auto;
+    padding: 29px;
 }
+
+form { 
+    opacity: 0.9;
+}
+
+
 
 .wrapper {
     max-width: 800px;
@@ -103,7 +111,7 @@
 
 @media(max-width: 768.5px) {
     .wrapper {
-        margin: 0px
+        margin: 0px;
     }
     .wrapper .form .row {
         padding: 0
@@ -112,10 +120,9 @@
 
 @media(max-width: 1024px) {
     .content {
-        background: url('https://cdn.wallpapersafari.com/24/57/cRa8V2.jpg');
-        /* background-repeat: no-repeat; */
         background-size: 100% 100%;
         height: 96%;
+        padding: 0;
     }
 }
 
@@ -123,6 +130,9 @@
     .wrapper {
         padding: 25px;
         margin: 0px;
+    }
+    .content { 
+        padding: 0;
     }
 }
 

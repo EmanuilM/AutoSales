@@ -6,7 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { offersRoutingModule } from './offers-routing.module';
 import { ListComponent } from './list/list.component';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     offersRoutingModule,
-    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class OffersModule { }
