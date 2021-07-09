@@ -4,6 +4,8 @@ const router = require('./server/router');
 const cors = require('cors');
 const config = require('./server/config/config');
 const path = require('path');
+const test = require('./server/models/brandAndModels');
+console.log(test.findOne({data : "Audi"}));
 
 const allowed = [
     ".js",
@@ -14,6 +16,7 @@ const allowed = [
 
 require('./server/config/db');
 require('./server/config/express')(app);
+require('./server/config/cloudinary')();
 
 console.log(process.env.NODE_ENV);
 app.use(express.static(path.join(__dirname, 'dist/client')));

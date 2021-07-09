@@ -26,8 +26,10 @@ async function register(userData) {
     }
 
     const user = new userModel({email , phoneNumber , username : username.toLowerCase().trim() , password : password.trim()});
-    return user.save();
-   
+    user.save();
+
+    const token = jwt.sign({_id : user._id} , config.SECRET_WORD);
+    return token;
 }
 
 
