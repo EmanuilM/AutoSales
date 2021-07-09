@@ -7,10 +7,19 @@
 }
 
 
+/* .content { 
+    background: url('https://wallpaperaccess.com/full/915116.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 110%;
+    padding: 1px;
+} */
+
 
 .carousel-content { 
     width: 117%;
     padding: 30px;
+   
 }
 
 
@@ -33,7 +42,6 @@
 
 .form-control {
     height: 25px;
-    width: 150px;
     border: none;
     border-radius: 0;
     font-weight: 800;
@@ -41,7 +49,6 @@
     background-color: transparent;
     box-shadow: none;
     outline: none;
-    border-bottom: 2px solid #ccc;
     margin: 0;
     font-size: 14px
 }
@@ -151,6 +158,11 @@ h5,
     font-family: 'Poppins', sans-serif
 }
 
+.carousel-content { 
+    position: absolute;
+    width: 130%;
+    left: -8%;
+}
 
 
 @media(max-width: 990px) {
@@ -169,15 +181,82 @@ h5,
 
    .phoneNumber { 
     position: absolute;
-    top: 16%;
+    top: 2%;
+    right: 75%;
    }
 
-   .num { 
+  .username { 
     position: absolute;
-    top: 3px;
-    left: 74%;
-   }
+    top: 43%;
+  }
+
+  
 }
 
+
+
+/* @media(min-width: 1400px) {
+  .carInfo { 
+    position: absolute;
+    right: -286%;
+  }
+  .detailsDescription {
+    position: absolute;
+    right: -15%;
+    top: 530px;
+  }
+
+  .detailsDescription p { 
+    position: absolute;
+    right: -165%;
+    width: 286%;
+  }
+
+ .userDetails{
+    position: absolute;
+    right: -290%;
+    top: 436px;
+ }
+
+ .email{
+    position: absolute;
+    top: -24px;
+ }
+
+ .phoneNumber { 
+    position: absolute;
+    top: 70px;
+ }
+
+
+} */
+
+
+ @media(min-width: 991px) {
+    .carInfo { 
+        position: absolute;
+        right: -284%;
+        top: -2%;
+      }
+   
+      .detailsDescription {
+        position: absolute;
+        right: -15%;
+        top: 530px;
+      }
+
+      .detailsDescription p { 
+        position: absolute;
+        right: -165%;
+        width: 286%;
+      }
+
+      .userDetails{
+        position: absolute;
+        right: -290%;
+        top: 436px;
+     }
+    
+} 
 
 
