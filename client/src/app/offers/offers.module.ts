@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { TestComponent } from './test/test.component';
 
 
 
@@ -20,7 +19,6 @@ import { TestComponent } from './test/test.component';
     ListComponent,
     EditComponent,
     DetailsComponent,
-    TestComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +26,7 @@ import { TestComponent } from './test/test.component';
     AppRoutingModule,
     offersRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    MaterialModule,
   ]
 })
 export class OffersModule { }

@@ -3,7 +3,6 @@ import { CreateComponent } from './create/create.component'
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
-import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -25,10 +24,6 @@ const routes: Routes = [
         path: 'details',
         component: DetailsComponent,
       },
-      {
-        path: 'test',
-        component: TestComponent,
-      }
 
     ]
   }

@@ -6,7 +6,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OffersModule } from './offers/offers.module';
 import { MaterialModule } from './material/material.module';
 
@@ -22,7 +21,6 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     CoreModule,
     UserModule,
-    NgbModule,
     OffersModule,
     MaterialModule,
   ],
