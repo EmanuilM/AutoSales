@@ -1,9 +1,10 @@
 import { DataSource } from '@angular/cdk/collections';
 import { Component, Input, OnInit, Output , EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { MustMatch } from 'src/app/Validators/passwordValidator';
-import { UserService } from '../user.service';
+import { UserService } from '../../services/user.service';
 
 
 
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
 
 
-  constructor(private userService : UserService , private fb : FormBuilder) { 
+  constructor(private userService : UserService , private fb : FormBuilder , private router : Router) { 
     this.registerForm = fb.group({
       username : ['' , [Validators.required , Validators.minLength(4)] , []],
       password : ['' , [Validators.required , Validators.minLength(4)] , []],
@@ -36,12 +37,17 @@ export class RegisterComponent implements OnInit {
   get f () {return this.registerForm.controls;}
 
 
- register()  { 
+  registerHandler()  { 
   this.submitted = true;
     if(this.registerForm.invalid) { return; }
-   this.userService.registerHandler(this.registerForm.value).subscribe(x => {
-     console.log(x);
-   })
+   this.userService.register(this.registerForm.value).subscribe(res => {
+     sessionStorage.setItem('logged' , 'true')
+     this.router.navigate(['/']);
+   },
+    error => {
+      console.log(error.error.message);
+    }
+   )
  }
 
  }

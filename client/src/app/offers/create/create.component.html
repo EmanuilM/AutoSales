@@ -6,10 +6,8 @@
             <div class="form">
                 <div class="row">
                     <div class="sel">
-                        {{createOfferForm.value | json}}
                         <label>Brand</label>
-                        
-                        <select id="sub" name="brand" formControlName="brand" (change)="getData(createOfferForm.value.brand)" required>
+                        <select id="sub" name="brand" formControlName="brand" (change)="getModels(createOfferForm.value.brand)" required>
                             <option selected hidden>Choose brand</option>
                             <option *ngFor="let brand of brands">{{brand}}</option>
                             <!-- <option value="Alfa Romeo">Alfa Romeo
@@ -167,8 +165,9 @@
                     </select>
                     <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
                 </div>
-                <!-- <input type="file" multiple (change)="selectImages($event)"> -->
+                <input type="file" multiple formControlName="image" (change)="selectImages($event)">
                 <button class="btn btn-primary mt-3">Create your offer</button>
+                <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!</div>
             </div>
         </div>
     </form>

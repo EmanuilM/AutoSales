@@ -12,7 +12,7 @@ export class OffersService {
   constructor(private http: HttpClient) { }
 
   createOfferHandler(data : any) : Observable<any> { 
-    return this.http.post<any>('/offers/create' , data);
+    return this.http.post<any>('/api/offers/create' , data);
   }
 
   

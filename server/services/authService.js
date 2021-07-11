@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const config = require('../config/config');
 const bcrypt = require('bcrypt');
 
-async function register(userData) { 
+async function register(userData,res) { 
     const {email , phoneNumber , username , password , rePassword} = userData;
     const checkAllFields = Object.values(userData).every(y => y != '');
     if(!checkAllFields) { 
