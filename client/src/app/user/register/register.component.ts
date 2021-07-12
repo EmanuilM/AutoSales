@@ -2,7 +2,7 @@ import { DataSource } from '@angular/cdk/collections';
 import { Component, Input, OnInit, Output , EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { MustMatch } from 'src/app/Validators/passwordValidator';
 import { UserService } from '../../services/user.service';
 
@@ -46,6 +46,7 @@ export class RegisterComponent implements OnInit {
      this.router.navigate(['/']);
    },
     error => {
+      timer(7000).subscribe(x => this.error = undefined);
       this.error = error.error.message;
       console.log(this.error);
     }

@@ -6,11 +6,11 @@ body {
     padding: 3rem !important
 }
 
-.user-card-full {
-    overflow: hidden
+
+.page-container{ 
+    position: absolute;
+    width: 96%;
 }
-
-
 
 .card {
     border-radius: 5px;
@@ -123,3 +123,57 @@ h6 {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out
 }
+
+
+@media(min-width: 200px) {
+    .user-card-full{ 
+        position: absolute;
+        width: 155.8%;
+        left: -19%;
+        margin-top: -48px;
+    }
+    .title { 
+        position: relative;
+        bottom: -75%;
+        right: -36%;
+    }
+   
+}
+
+
+@media(min-width: 576px) {
+    .user-card-full{ 
+        position: absolute;
+        width: 141.8%;
+        left: -19%;
+        margin-top: -48px;
+    }
+    .title { 
+        position: relative;
+        bottom: -32%;
+        right: -50%;
+    }
+
+   
+}
+
+
+@media(min-width: 990px) {
+    .user-card-full{ 
+        position: absolute;
+        width: 141.8%;
+        left: -8%;
+        margin-top: -8px;
+    }
+
+    .title { 
+        position: relative;
+        bottom: -32%;
+        right: -50%;
+    }
+
+   
+}
+
+
+
