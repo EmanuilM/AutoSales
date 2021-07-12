@@ -1,0 +1,8 @@
+.alert-warning {
+    color: white;
+    background-color: #fd2222;
+    border-color: white;
+    position: absolute;
+    right: 3%;
+    margin-top: 10px;
+}

@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
   submitted = false;
+  error : string;
 
   constructor(private fb : FormBuilder , private userService : UserService , private router : Router) {
     this.loginForm = fb.group({
@@ -36,7 +37,9 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('logged' , 'true');
       this.router.navigate(['/']);
     },
-    error => console.log(error.error.message)
+    error => {
+      this.error = error.error.message;
+    }
     )
 
   }

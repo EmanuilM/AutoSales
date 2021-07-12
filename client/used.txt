@@ -1,3 +1,0 @@
-Angular Material(Card)
-Angular Flex-Layout
-Bootstrap(carousel)

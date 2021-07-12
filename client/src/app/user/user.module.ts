@@ -7,6 +7,7 @@ import { userRoutingModule } from './user-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -21,7 +22,8 @@ import { ProfileComponent } from './profile/profile.component';
     RouterModule,
     userRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class UserModule { }

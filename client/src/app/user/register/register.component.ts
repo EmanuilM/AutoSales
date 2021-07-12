@@ -17,6 +17,7 @@ import { UserService } from '../../services/user.service';
 export class RegisterComponent implements OnInit {
   registerForm : FormGroup;
   submitted = false;
+  error : string;
 
 
   constructor(private userService : UserService , private fb : FormBuilder , private router : Router) { 
@@ -45,7 +46,8 @@ export class RegisterComponent implements OnInit {
      this.router.navigate(['/']);
    },
     error => {
-      console.log(error.error.message);
+      this.error = error.error.message;
+      console.log(this.error);
     }
    )
  }

@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  
+    AlertComponent
+  ],
   imports: [
     CommonModule,
+    NgbModule,
   ],
+  exports : [
+    AlertComponent
+  ]
   
 })
 export class SharedModule { }
