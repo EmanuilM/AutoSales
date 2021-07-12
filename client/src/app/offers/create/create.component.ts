@@ -1,6 +1,7 @@
 import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { OffersService } from '../../services/offers.service';
 import { UploadService } from '../../services/upload.service';
 import * as carsData from '../../shared/carsData.json';
@@ -23,6 +24,8 @@ export class CreateComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
+  error : string;
+  isLoading : boolean;
 
 
 
@@ -33,6 +36,7 @@ export class CreateComponent implements OnInit {
     private offerService: OffersService,
     private fb: FormBuilder,
     private uploadService : UploadService,
+    private router : Router,
   ) {
     this.createOfferForm = fb.group({
       brand: ['', [Validators.required], []],
@@ -56,18 +60,18 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
-    console.log(this.brands);
   }
+
   
   getModels(brand) { 
     this.models = Object.values(this.currentCarsData[brand])
-    console.log(this.models);
   }
 
 
   get f() { return this.createOfferForm.controls; }
 
   create(data: any): any {
+    this.isLoading = true;
     this.submitted = true;
     if (this.createOfferForm.invalid) { return; }
     const promises = [];
@@ -81,8 +85,14 @@ export class CreateComponent implements OnInit {
       data.imageIds = res.map(x => x.public_id);
       console.log(data.imageIds);
       
-       this.offerService.createOfferHandler(data).subscribe(x => {
-        console.log(x);
+       this.offerService.createOfferHandler(data).subscribe(movieID => {
+        this.isLoading = false;
+        this.router.navigate(['/offers/details/' + movieID]);
+      },
+      error => { 
+        this.isLoading = false;
+        this.error = error.error.message;
+        console.log(error.error.message);
       })
       
     })

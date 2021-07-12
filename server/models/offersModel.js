@@ -55,6 +55,7 @@ const offerSchema = new mongoose.Schema({
         required: true,
     },
     imageURLs : [],
+    imageIds : [],
     creator: {
         type: mongoose.Types.ObjectId,
         ref: 'user'

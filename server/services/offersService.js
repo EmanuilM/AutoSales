@@ -14,7 +14,10 @@ async function createOffer(data, userID) {
         description,
         transmission,
         engineType,
-        category, } = data;
+        category, 
+        imageIds,
+        imageURLs
+    } = data;
     const checkAllFields = Object.values(data).every(y => y != '');
     if (!checkAllFields) {
         throw ({ message: "All fields are required!" });
@@ -34,10 +37,11 @@ async function createOffer(data, userID) {
         transmission,
         engineType,
         category,
+        imageIds,
+        imageURLs,
         creator: userID
-
     });
-    offer.save();
+   return offer.save();
 }
 
 async function getAllOffers() {

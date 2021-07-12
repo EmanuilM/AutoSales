@@ -28,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FlexLayoutModule,
     LayoutModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    
   ]
 })
 export class MaterialModule { }

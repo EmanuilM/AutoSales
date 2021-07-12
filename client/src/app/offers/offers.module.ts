@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     offersRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
+    SharedModule
   ]
 })
 export class OffersModule { }
