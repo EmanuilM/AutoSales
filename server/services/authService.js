@@ -21,9 +21,19 @@ async function register(userData,res) {
 
 
     const isUserExist = await userModel.findOne({username : username.toLowerCase().trim()});
-    if(isUserExist) { 
-        throw({message : "This user already exist!"});
+    const isPhoneNumberExist = await userModel.findOne({phoneNumber});
+    const isEmailExist = await userModel.findOne({email});
+    if(isEmailExist) { 
+        throw({message : "This email is already taken!"});
     }
+    if(isUserExist) { 
+        throw({message : "This username is already taken!"});
+    }
+    if(isPhoneNumberExist) { 
+        throw({message : "This phone number is already registared!"});
+    }
+   
+
 
     const user = new userModel({email , phoneNumber , username : username.toLowerCase().trim() , password : password.trim()});
     user.save();
