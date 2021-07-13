@@ -34,8 +34,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/auth/logout' , (req,res) => { 
+router.post('/logout' , (req,res) => { 
     res.clearCookie(cfg.COOKIE_NAME);
+    res.status(200).end();
 });
 
 

@@ -29,7 +29,6 @@ export class HeaderComponent {
 
   logout(event) : void {
     this.userService.logout().subscribe(res => {
-      sessionStorage.removeItem('logged');
       this.router.navigate(['/']);
     },
     error => console.log(error.message)

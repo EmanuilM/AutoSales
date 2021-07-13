@@ -33,7 +33,10 @@ export class UserService {
   }
 
   logout() : Observable<any> { 
-    return this.http.get<IUser>('/api/auth/logout')
+    return this.http.post<any>('/api/auth/logout' , {} , {withCredentials : true})
+    .pipe((tap( ()=> {
+      sessionStorage.removeItem('logged');
+    })))
   }
 
   

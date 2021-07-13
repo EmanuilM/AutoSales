@@ -289,7 +289,6 @@ class HeaderComponent {
     }
     logout(event) {
         this.userService.logout().subscribe(res => {
-            sessionStorage.removeItem('logged');
             this.router.navigate(['/']);
         }, error => console.log(error.message));
     }
@@ -3414,7 +3413,10 @@ class UserService {
         }));
     }
     logout() {
-        return this.http.get('/api/auth/logout');
+        return this.http.post('/api/auth/logout', {}, { withCredentials: true })
+            .pipe((Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["tap"])(() => {
+            sessionStorage.removeItem('logged');
+        })));
     }
 }
 UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
