@@ -12,8 +12,6 @@ import { IUser } from '../shared/interfaces/user';
 export class UserService {
 
   constructor(private http: HttpClient) { }
-  // isAuth = !!sessionStorage.getItem('logged');
-
   get isAuth() : boolean { 
     return !!sessionStorage.getItem('logged');
   }

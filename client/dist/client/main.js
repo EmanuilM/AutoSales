@@ -833,7 +833,6 @@ class CreateComponent {
     }
     get f() { return this.createOfferForm.controls; }
     create(data) {
-        this.isLoading = true;
         this.submitted = true;
         if (this.createOfferForm.invalid) {
             return;
@@ -843,6 +842,7 @@ class CreateComponent {
         for (let i = 0; i < this.files.length; i++) {
             promises.push(this.uploadService.upload(this.files[i]).toPromise());
         }
+        this.isLoading = true;
         Promise.all(promises)
             .then(res => {
             data.imageURLs = res.map(x => x.url);
@@ -3398,7 +3398,6 @@ class UserService {
     constructor(http) {
         this.http = http;
     }
-    // isAuth = !!sessionStorage.getItem('logged');
     get isAuth() {
         return !!sessionStorage.getItem('logged');
     }

@@ -27,9 +27,6 @@ export class CreateComponent implements OnInit {
   error : string;
   isLoading : boolean;
 
-
-
-  
   
   constructor(
     private http: HttpClient,
@@ -61,7 +58,7 @@ export class CreateComponent implements OnInit {
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
   }
-
+  
   
   getModels(brand) { 
     this.models = Object.values(this.currentCarsData[brand])
@@ -71,7 +68,6 @@ export class CreateComponent implements OnInit {
   get f() { return this.createOfferForm.controls; }
 
   create(data: any): any {
-    this.isLoading = true;
     this.submitted = true;
     if (this.createOfferForm.invalid) { return; }
     const promises = [];
@@ -79,6 +75,7 @@ export class CreateComponent implements OnInit {
     for (let i = 0; i < this.files.length; i++) {
       promises.push(this.uploadService.upload(this.files[i]).toPromise());
     }
+    this.isLoading = true;
     Promise.all(promises)
     .then(res => { 
       data.imageURLs = res.map(x => x.url);
