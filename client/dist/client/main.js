@@ -3072,7 +3072,6 @@ class RegisterComponent {
             return;
         }
         this.userService.register(this.registerForm.value).subscribe(res => {
-            sessionStorage.setItem('logged', 'true');
             this.router.navigate(['/']);
         }, error => {
             Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["timer"])(7000).subscribe(x => this.error = undefined);
@@ -3389,27 +3388,38 @@ CoreModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjecto
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return UserService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 class UserService {
     constructor(http) {
         this.http = http;
-        this.isAuth = !!sessionStorage.getItem('logged');
+    }
+    // isAuth = !!sessionStorage.getItem('logged');
+    get isAuth() {
+        return !!sessionStorage.getItem('logged');
     }
     register(body) {
-        return this.http.post('/api/auth/register', body, { withCredentials: true });
+        return this.http.post('/api/auth/register', body, { withCredentials: true })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["tap"])((x) => {
+            sessionStorage.setItem('logged', 'true');
+        }));
     }
     login(body) {
-        return this.http.post('/api/auth/login', body, { withCredentials: true });
+        return this.http.post('/api/auth/login', body, { withCredentials: true })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["tap"])((x) => {
+            sessionStorage.setItem('logged', 'true');
+        }));
     }
     logout() {
         return this.http.get('/api/auth/logout');
     }
 }
-UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
-UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac, providedIn: 'root' });
+UserService.ɵfac = function UserService_Factory(t) { return new (t || UserService)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
+UserService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: UserService, factory: UserService.ɵfac, providedIn: 'root' });
 
 
 /***/ }),

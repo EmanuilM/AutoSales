@@ -38,11 +38,10 @@ export class RegisterComponent implements OnInit {
   get f () {return this.registerForm.controls;}
 
 
-  registerHandler()  { 
+  registerHandler() : void { 
   this.submitted = true;
     if(this.registerForm.invalid) { return; }
    this.userService.register(this.registerForm.value).subscribe(res => {
-     sessionStorage.setItem('logged' , 'true')
      this.router.navigate(['/']);
    },
     error => {
