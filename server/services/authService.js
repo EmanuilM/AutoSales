@@ -35,7 +35,7 @@ async function register(userData,res) {
    
 
 
-    const user = new userModel({email , phoneNumber , username : username.toLowerCase().trim() , password : password.trim()});
+    const user = new userModel({email : email.toLowerCase().trim() , phoneNumber , username : username.toLowerCase().trim() , password : password.trim()});
     user.save();
 
     const token = jwt.sign({_id : user._id} , config.SECRET_WORD);
