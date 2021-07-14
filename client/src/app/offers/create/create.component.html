@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="sel">
                         <label>Brand</label>
-                        <select id="sub" name="brand" formControlName="brand" (change)="getModels(createOfferForm.value.brand)" required>
+                        <select id="sub" name="brand"  formControlName="brand" (change)="getModels(createOfferForm.value.brand)" required>
                             <option selected hidden>Choose brand</option>
                             <option *ngFor="let brand of brands">{{brand}}</option>
                             <!-- <option value="Alfa Romeo">Alfa Romeo
@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Year</label>
-                        <input formControlName="year" type="text" class="form-control" name="color" required>
+                        <input formControlName="year" type="number" class="form-control" name="color" placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.year.errors?.required">Year field is required!</div>
 
                     </div>
@@ -85,12 +85,12 @@
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Power</label>
-                        <input formControlName="power" type="text" class="form-control" name="power" required>
+                        <input formControlName="power" type="number" class="form-control" name="power"  placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.power.errors?.required">Power field is required!</div>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Мileage</label>
-                        <input formControlName="mileage" type="text" class="form-control" name="mileage" required>
+                        <input formControlName="mileage" type="number" class="form-control" name="mileage"  placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.mileage.errors?.required">Mileage field is required!</div>
 
 
@@ -104,14 +104,14 @@
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Price</label>
-                        <input formControlName="price" type="tel" class="form-control" name="price" required>
+                        <input formControlName="price" type="number" class="form-control" name="price" placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.price.errors?.required">Price field is required!</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Doors</label>
-                        <input formControlName="doors" type="text" class="form-control" name="doors" required>
+                        <input formControlName="doors" type="number" class="form-control" name="doors" placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.doors.errors?.required">Doors field is required!</div>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">

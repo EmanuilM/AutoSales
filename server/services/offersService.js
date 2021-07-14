@@ -48,7 +48,12 @@ async function getAllOffers() {
     return await offerModel.find();
 }
 
+async function getDataById(id) { 
+    return await offerModel.findById(id);
+}
+
 module.exports = {
     createOffer,
     getAllOffers,
+    getDataById,
 }

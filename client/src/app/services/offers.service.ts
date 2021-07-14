@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { reduceEachTrailingCommentRange } from 'typescript';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,14 @@ export class OffersService {
 
   createOfferHandler(data : any) : Observable<any> { 
     return this.http.post<any>('/api/offers/create' , data);
+  }
+
+  catalogueOffers() : Observable<any> { 
+    return this.http.get<any>('/api/offers/catalogue');
+  }
+
+  getOfferDetails(id) : Observable<any> { 
+    return this.http.get<any>('/api/offers/catalogue/' + id);
   }
 
   

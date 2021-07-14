@@ -13,6 +13,25 @@ router.post('/create', isAuth , async (req, res) => {
     }
 });
 
+router.get('/catalogue' , async (req,res) => { 
+    try {
+        const allOffers = await offerService.getAllOffers();
+        res.status(200).json(allOffers);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.get('/catalogue/:id' , async (req,res) => { 
+    try {
+        const offer = await offerService.getDataById(req.params.id);
+        console.log(offer);
+        res.status(200).json(offer);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
+
 
 
 
