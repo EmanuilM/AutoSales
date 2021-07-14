@@ -1,4 +1,5 @@
 <div class="content">
+	<app-spinner *ngIf="isLoading"></app-spinner>
 	<app-alert *ngIf="error" [message]="error"></app-alert>
 	<div class="wrapper">
 	   <form [formGroup]="registerForm" (ngSubmit)="registerHandler()">

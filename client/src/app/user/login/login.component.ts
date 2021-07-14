@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   submitted = false;
   error : string;
+  isLoading : boolean;
 
   constructor(private fb : FormBuilder , private userService : UserService , private router : Router) {
     this.loginForm = fb.group({
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   get f () {return this.loginForm.controls};
 
   loginHandler() { 
+    this.isLoading = true;
     const {username , password} = this.loginForm.value;
     this.submitted = true;
     if(this.loginForm.invalid) { 
@@ -34,10 +36,12 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.login({username , password}).subscribe(res => {
+      this.isLoading = false;
       sessionStorage.setItem('logged' , 'true');
       this.router.navigate(['/']);
     },
     error => {
+      this.isLoading = false;
       this.error = error.error.message;
     }
     )
