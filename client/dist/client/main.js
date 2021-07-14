@@ -671,8 +671,8 @@ class OffersService {
     catalogueOffers() {
         return this.http.get('/api/offers/catalogue');
     }
-    nextOffers(lastPostID) {
-        return this.http.get(`/api/offers/next?lastPostId=${lastPostID}`);
+    nextOffers(lastOffersID) {
+        return this.http.get(`/api/offers/next?lastOffersID=${lastOffersID}`);
     }
     getOfferDetails(id) {
         return this.http.get('/api/offers/catalogue/' + id);
@@ -1349,14 +1349,14 @@ class ListComponent {
     onScroll() {
         console.log('scrolled');
         Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(300).subscribe(x => {
-            this.loadNextPosts();
+            this.loadNextOffers();
         });
     }
-    loadNextPosts() {
-        const lastPostsIndex = this.catalogue.length;
-        this.offerService.nextOffers(lastPostsIndex).subscribe(x => {
-            this.catalogue = this.catalogue.concat(x);
-            console.log(x);
+    loadNextOffers() {
+        const lastOfferIndeex = this.catalogue.length;
+        this.offerService.nextOffers(lastOfferIndeex).subscribe(res => {
+            this.catalogue = this.catalogue.concat(res);
+            console.log(res);
         });
     }
 }
