@@ -11,7 +11,7 @@ const offerSchema = new mongoose.Schema({
         required: true,
     },
     year: {
-        type: String,
+        type: Number,
         required: true,
     },
     color: {
@@ -19,11 +19,11 @@ const offerSchema = new mongoose.Schema({
         required: true,
     },
     power: {
-        type: String,
+        type: Number,
         required: true,
     },
     mileage: {
-        type: String,
+        type: Number,
         required: true,
     },
     populatedState: {
@@ -31,11 +31,11 @@ const offerSchema = new mongoose.Schema({
         required: true,
     },
     price: {
-        type: String,
+        type: Number,
         required: true,
     },
     doors: {
-        type: String,
+        type: Number,
         required: true,
     },
     description: {

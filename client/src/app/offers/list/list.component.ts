@@ -12,6 +12,7 @@ export class ListComponent implements OnInit {
   catalogue = [];
   notEmptyPost = true;
   notScrolly = true;
+  isLoading : boolean;
   constructor(private offerService : OffersService , private http : HttpClient) { }
 
   ngOnInit(): void {
@@ -23,7 +24,8 @@ export class ListComponent implements OnInit {
 
   onScroll() { 
     console.log('scrolled');
-    timer(300).subscribe(x => { 
+    timer(270).subscribe(x => { 
+      this.isLoading = true;
       this.loadNextOffers();
     })
   }
@@ -33,6 +35,7 @@ export class ListComponent implements OnInit {
     const lastOfferIndeex = this.catalogue.length;
    this.offerService.nextOffers(lastOfferIndeex).subscribe(res => { 
      this.catalogue = this.catalogue.concat(res);
+     this.isLoading = false;
      console.log(res);
      
    })

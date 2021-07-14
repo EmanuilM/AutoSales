@@ -34,7 +34,7 @@ router.get('/catalogue/:id' , async (req,res) => {
 
 router.get('/next' , async (req,res) => { 
     try {
-        const offers = await offerService.getNext(Number(req.query.lastPostId));
+        const offers = await offerService.getNext(Number(req.query.lastOffersID));
         res.status(200).json(offers);
         console.log(req.query);
     } catch (err) {
