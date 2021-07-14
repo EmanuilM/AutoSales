@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
     },
       error => {
         this.isLoading = false;
-        timer(7000).subscribe(x => this.error = undefined);
+        timer(3000).subscribe(x => this.error = undefined);
         this.error = error.error.message;
         console.log(this.error);
       }

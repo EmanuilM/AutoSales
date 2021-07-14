@@ -7,9 +7,9 @@
                 <div class="row">
                     <div class="sel">
                         <label>Brand</label>
-                        <select id="sub" name="brand"  formControlName="brand" (change)="getModels(createOfferForm.value.brand)" required>
-                            <option selected hidden>Choose brand</option>
-                            <option *ngFor="let brand of brands">{{brand}}</option>
+                        <select id="sub" name="brand"  formControlName="brand" (change)="getModels(createOfferForm.value.brand)">
+                            <option value="" selected hidden>Choose brand</option>
+                            <option value="{{brand}}" *ngFor="let brand of brands">{{brand}}</option>
                             <!-- <option value="Alfa Romeo">Alfa Romeo
                             <option value="Audi">Audi
                             <option value="BMW">BMW
@@ -55,7 +55,7 @@
                             <option value="Volga">Volga
                             <option value="Volvo">Volvo  -->
                         </select>
-                        <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
+                        <div class="error-message" *ngIf="submitted && f.brand.errors?.required">Brand type field is required!</div>
                     </div>
     
                     <div class="sel">
@@ -65,7 +65,7 @@
                             <option *ngFor="let model of models">{{model}}</option>
                             
                         </select>
-                        <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
+                        <div class="error-message" *ngIf="submitted && f.model.errors?.required">Model type field is required!</div>
                     </div>
                 </div>
 

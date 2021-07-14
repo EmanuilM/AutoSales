@@ -20,6 +20,10 @@ export class OffersService {
     return this.http.get<any>('/api/offers/catalogue');
   }
 
+  nextOffers(lastOffersID) : Observable<any> { 
+    return this.http.get<any>(`/api/offers/next?lastOffersID=${lastOffersID}`);
+  }
+
   getOfferDetails(id) : Observable<any> { 
     return this.http.get<any>('/api/offers/catalogue/' + id);
   }

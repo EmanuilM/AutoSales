@@ -52,8 +52,13 @@ async function getDataById(id) {
     return await offerModel.findById(id);
 }
 
+async function getNext(offset) { 
+    return await offerModel.find().skip(offset).limit(12);
+}
+
 module.exports = {
     createOffer,
     getAllOffers,
     getDataById,
+    getNext,
 }

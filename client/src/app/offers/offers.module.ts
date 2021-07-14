@@ -9,8 +9,8 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../shared/shared.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -28,7 +28,9 @@ import { SharedModule } from '../shared/shared.module';
     offersRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    SharedModule
-  ]
+    SharedModule,
+    InfiniteScrollModule
+    
+  ],
 })
 export class OffersModule { }
