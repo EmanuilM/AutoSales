@@ -8,9 +8,9 @@ router.post('/register', async (req, res) => {
     try {
         const token =  await authService.register(req.body)
         if (process.env.NODE_ENV === "production") {
-            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true, secure: true , sameSite : 'None' ,  secure : true});
+            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true, secure: true });
         }else{ 
-            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true , sameSite : 'None' , secure : true});
+            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true });
         }
         res.status(200).json(token);
     } catch (err) {
@@ -24,9 +24,9 @@ router.post('/login', async (req, res) => {
     try {
         const token = await authService.login(req.body);
         if (process.env.NODE_ENV === "production") {
-            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true, secure: true   , secure : true});
+            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true,   secure : true});
         }else{ 
-            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true  , secure : true});
+            res.cookie(cfg.COOKIE_NAME, token, { httpOnly: true });
         }
         res.status(200).json(token);
     } catch (err) {
