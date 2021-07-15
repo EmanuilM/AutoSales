@@ -166,9 +166,9 @@
                     <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
                 </div>
                 <input type="file" multiple formControlName="image" (change)="selectImages($event)">
-                <button class="btn btn-primary mt-3">Create your offer</button>
                 <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!</div>
             </div>
+            <button class="btn btn-primary mt-3">Create your offer</button>
         </div>
     </form>
 </div>

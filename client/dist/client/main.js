@@ -1355,7 +1355,6 @@ class ListComponent {
     ngOnInit() {
         this.offerService.nextOffers(1).subscribe(x => {
             this.catalogue = x;
-            console.log(this.catalogue);
         });
     }
     onScroll() {
@@ -1385,7 +1384,7 @@ ListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComp
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("infiniteScrollDistance", 0)("infiniteScrollThrottle", 50);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("infiniteScrollDistance", 0.7)("infiniteScrollThrottle", 50);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx.catalogue);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);

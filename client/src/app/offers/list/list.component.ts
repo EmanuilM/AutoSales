@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import {  timer } from 'rxjs';
 import { OffersService } from 'src/app/services/offers.service';
 
 @Component({
@@ -13,14 +13,20 @@ export class ListComponent implements OnInit {
   notEmptyPost = true;
   notScrolly = true;
   isLoading : boolean;
-  constructor(private offerService : OffersService , private http : HttpClient) { }
+
+
+
+  constructor(private offerService : OffersService , private http : HttpClient  ) { }
 
   ngOnInit(): void {
     this.offerService.nextOffers(1).subscribe(x => { 
       this.catalogue = x;
-      console.log(this.catalogue);
     })
+
+   
   }
+
+
 
   onScroll() { 
     console.log('scrolled');
