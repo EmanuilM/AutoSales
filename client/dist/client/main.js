@@ -1339,7 +1339,7 @@ function ListComponent_div_2_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngForOf", ctx_r0.catalogue);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.isLoading);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngIf", ctx_r0.isOffersLoading);
 } }
 function ListComponent_div_3_div_1_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 32);
@@ -1397,7 +1397,7 @@ class ListComponent {
     onScroll() {
         console.log('scrolled');
         Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["timer"])(270).subscribe(x => {
-            this.isLoading = true;
+            this.isOffersLoading = true;
             this.loadNextOffers();
         });
     }
@@ -1405,7 +1405,7 @@ class ListComponent {
         const lastOfferIndeex = this.catalogue.length;
         this.offerService.nextOffers(lastOfferIndeex).subscribe(res => {
             this.catalogue = this.catalogue.concat(res);
-            this.isLoading = false;
+            this.isOffersLoading = false;
             console.log(res);
         });
     }

@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListComponent implements OnInit {
   catalogue = [];
+  isOffersLoading : boolean;
   isLoading : boolean;
 
   get isAuth() : Boolean { 
@@ -32,7 +33,7 @@ export class ListComponent implements OnInit {
   onScroll() { 
     console.log('scrolled');
     timer(270).subscribe(x => { 
-      this.isLoading = true;
+      this.isOffersLoading = true;
       this.loadNextOffers();
     })
   }
@@ -42,7 +43,7 @@ export class ListComponent implements OnInit {
     const lastOfferIndeex = this.catalogue.length;
    this.offerService.nextOffers(lastOfferIndeex).subscribe(res => { 
      this.catalogue = this.catalogue.concat(res);
-     this.isLoading = false;
+     this.isOffersLoading = false;
      console.log(res);
      
    })
