@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { reduceEachTrailingCommentRange } from 'typescript';
+import { IOffer } from '../shared/interfaces/offer';
 
 @Injectable({
   providedIn: 'root'
@@ -12,20 +12,20 @@ export class OffersService {
 
   constructor(private http: HttpClient) { }
 
-  createOfferHandler(data : any) : Observable<any> { 
-    return this.http.post<any>('/api/offers/create' , data);
+  createOfferHandler(data : Object) : Observable<IOffer> { 
+    return this.http.post<IOffer>('/api/offers/create' , data);
   }
 
-  catalogueOffers() : Observable<any> { 
-    return this.http.get<any>('/api/offers/catalogue');
+  catalogueOffers() : Observable<IOffer> { 
+    return this.http.get<IOffer>('/api/offers/catalogue');
   }
 
   nextOffers(lastOffersID) : Observable<any> { 
     return this.http.get<any>(`/api/offers/next?lastOffersID=${lastOffersID}`);
   }
 
-  getOfferDetails(id) : Observable<any> { 
-    return this.http.get<any>('/api/offers/catalogue/' + id);
+  getOfferDetails(id) : Observable<IOffer> { 
+    return this.http.get<IOffer>('/api/offers/catalogue/' + id);
   }
 
   
