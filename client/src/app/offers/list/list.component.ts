@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {  timer } from 'rxjs';
 import { OffersService } from 'src/app/services/offers.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list',
@@ -10,19 +11,20 @@ import { OffersService } from 'src/app/services/offers.service';
 })
 export class ListComponent implements OnInit {
   catalogue = [];
-  notEmptyPost = true;
-  notScrolly = true;
   isLoading : boolean;
 
+  get isAuth() : Boolean { 
+    return this.userService.isAuth;
+  }
 
-
-  constructor(private offerService : OffersService , private http : HttpClient  ) { }
+  constructor(private offerService : OffersService , private userService : UserService  ) { }
 
   ngOnInit(): void {
-    this.offerService.nextOffers(1).subscribe(x => { 
+    this.offerService.nextOffers(0).subscribe(x => { 
       this.catalogue = x;
+      console.log(x);
+      
     })
-
    
   }
 

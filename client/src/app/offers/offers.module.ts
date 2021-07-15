@@ -11,6 +11,7 @@ import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details/details.component';
 import { SharedModule } from '../shared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CoreModule } from '../core/core.module';
 
 
 
@@ -29,8 +30,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     ReactiveFormsModule,
     MaterialModule,
     SharedModule,
-    InfiniteScrollModule
-    
+    InfiniteScrollModule,
   ],
 })
 export class OffersModule { }
