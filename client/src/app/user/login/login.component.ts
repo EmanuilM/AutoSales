@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
   get f () {return this.loginForm.controls};
 
   loginHandler() { 
-    this.isLoading = true;
     const {username , password} = this.loginForm.value;
     this.submitted = true;
     if(this.loginForm.invalid) { 
       return;
     }
+    this.isLoading = true;
 
     this.userService.login({username , password}).subscribe(res => {
       this.isLoading = false;

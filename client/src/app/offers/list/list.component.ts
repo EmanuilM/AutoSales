@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {  timer } from 'rxjs';
 import { OffersService } from 'src/app/services/offers.service';

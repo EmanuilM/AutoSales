@@ -40,9 +40,9 @@ export class RegisterComponent implements OnInit {
 
 
   registerHandler(): void {
-    this.isLoading = true;
     this.submitted = true;
     if (this.registerForm.invalid) { return; }
+    this.isLoading = true;
     this.userService.register(this.registerForm.value).subscribe(res => {
       this.isLoading = false;
       this.router.navigate(['/']);

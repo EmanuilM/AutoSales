@@ -60,12 +60,12 @@ class LoginComponent {
     get f() { return this.loginForm.controls; }
     ;
     loginHandler() {
-        this.isLoading = true;
         const { username, password } = this.loginForm.value;
         this.submitted = true;
         if (this.loginForm.invalid) {
             return;
         }
+        this.isLoading = true;
         this.userService.login({ username, password }).subscribe(res => {
             this.isLoading = false;
             sessionStorage.setItem('logged', 'true');
@@ -2069,11 +2069,11 @@ class RegisterComponent {
     }
     get f() { return this.registerForm.controls; }
     registerHandler() {
-        this.isLoading = true;
         this.submitted = true;
         if (this.registerForm.invalid) {
             return;
         }
+        this.isLoading = true;
         this.userService.register(this.registerForm.value).subscribe(res => {
             this.isLoading = false;
             this.router.navigate(['/']);
