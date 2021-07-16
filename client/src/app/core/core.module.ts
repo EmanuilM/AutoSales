@@ -6,13 +6,11 @@ import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-  
   ],
   imports: [
     CommonModule,
     RouterModule,
   ],
-  exports : [
-  ]
+  exports : []
 })
 export class CoreModule { }

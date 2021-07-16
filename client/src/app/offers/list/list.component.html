@@ -1,6 +1,7 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="container-fluid d-flex justify-content-center">
 
-
+   
    <div class="search-results" infiniteScroll [infiniteScrollDistance]="0.7" [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()">
 
@@ -51,8 +52,8 @@
          <app-catalogue-spinner *ngIf="isOffersLoading"></app-catalogue-spinner>
       </div>
 
-      <div class="no-content" *ngIf="!catalogue.length">
-
+      <div class="no-content" *ngIf="emptyCatalogue">
+         
          <div class="loggedIn" *ngIf="isAuth">
             <h1>There's not offers yet!</h1>
             <p>Be the first one and create offer right now</p>
