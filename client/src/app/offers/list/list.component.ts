@@ -21,8 +21,6 @@ export class ListComponent implements OnInit  {
   constructor(private offerService : OffersService , private userService : UserService  ) { }
   
 
-  
-
   ngOnInit(): void {
     this.isLoading = true;
     this.offerService.nextOffers(0).subscribe(x => { 
