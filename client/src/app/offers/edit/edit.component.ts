@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { OffersService } from 'src/app/services/offers.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
@@ -20,8 +20,14 @@ export class EditComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
+  isLoading : boolean;
 
-  constructor(private fb : FormBuilder , private offerService : OffersService , private router : ActivatedRoute) { 
+  constructor(
+    private fb : FormBuilder , 
+    private offerService : OffersService , 
+    private router : ActivatedRoute , 
+    private route : Router
+    ) { 
 
     this.editForm = fb.group({
       brand: ['', [Validators.required], []],
@@ -57,12 +63,18 @@ export class EditComponent implements OnInit {
 
   }
 
+
   getModels(brand) { 
     this.models = Object.values(this.currentCarsData[brand])
   }
 
-  edit() { 
+  edit(body) { 
     this.submitted = true;
+    this.isLoading = true;
+    this.offerService.edit(this.offerID , body).subscribe(x => {
+      this.isLoading = false;
+      this.route.navigate(['/offers/details/' + this.offerID]);
+    })
   }
 
 }

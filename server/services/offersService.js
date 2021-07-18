@@ -59,9 +59,15 @@ async function getNext(offset) {
     return await offerModel.find().skip(offset).limit(12);
 }
 
+async function edit(id , newData) { 
+  return await offerModel.findById(id).updateOne(newData);
+ 
+}
+
 module.exports = {
     createOffer,
     getAllOffers,
     getDataById,
     getNext,
+    edit,
 }

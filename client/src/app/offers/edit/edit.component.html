@@ -1,6 +1,6 @@
     
 <div class="content">
-    <form [formGroup]="editForm" (ngSubmit)="edit()">
+    <form [formGroup]="editForm" (ngSubmit)="edit(editForm.value)">
         <div class="wrapper rounded bg-white">
             <div class="h3">Edit offer</div>
             <div class="form">
@@ -18,9 +18,10 @@
                         <label>Model</label>
                         <select id="sub" name="model" formControlName="model" required>
                             <option value="" selected hidden >Choose model</option>
-                            <option value="" *ngFor="let model of models">{{model}}</option>
+                            <option value="E60" *ngFor="let model of models">{{model}}</option>
                          
                         </select>
+                        {{editForm.value.model | json}}
                         <div class="error-message" *ngIf="submitted && f.model.errors?.required">Model field is required!</div>
                     </div>
                 </div>

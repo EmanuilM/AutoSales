@@ -28,6 +28,10 @@ export class OffersService {
     return this.http.get<IOffer>('/api/offers/catalogue/' + id);
   }
 
+  edit(id,body) : Observable<any> { 
+    return this.http.post<any>('/api/offers/edit/' + id , body , {withCredentials : true});
+  }
+
  
 
   
