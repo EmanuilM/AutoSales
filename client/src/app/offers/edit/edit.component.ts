@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { OffersService } from 'src/app/services/offers.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
@@ -21,6 +22,7 @@ export class EditComponent implements OnInit {
   models = [];
   currentCarsData = {};
   isLoading : boolean;
+  error : string;
 
   constructor(
     private fb : FormBuilder , 
@@ -74,6 +76,10 @@ export class EditComponent implements OnInit {
     this.offerService.edit(this.offerID , body).subscribe(x => {
       this.isLoading = false;
       this.route.navigate(['/offers/details/' + this.offerID]);
+    } , error => { 
+      this.isLoading = false;
+      timer(3000).subscribe(x => this.error = undefined);
+      this.error = error.error.message;
     })
   }
 
