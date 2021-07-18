@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" *ngIf="!isLoading">
    <div class="container">
       <div class="row m-0">
          <div class="col-lg-7 pb-5 pe-lg-5">
@@ -9,12 +9,11 @@
                         <ngb-carousel>
                            <ng-template ngbSlide *ngFor="let image of images">
                               <div class="carousel-item active" [style.background-image]="'url(' + image + ')'">
-                                 <div class="container">
-                                 </div>
                               </div>
                            </ng-template>
                         </ngb-carousel>
                      </div>
+
                   </div>
                </div>
             </div>
@@ -22,56 +21,56 @@
                <div class="row m-0">
                   <div class="col-12 px-4 carInfo">
                      <div class="d-flex align-items-end mt-4 mb-2">
-                        <p class="h4 m-0"><span class="pe-1">{{data?.brand}}</span><span
-                              class="pe-1">{{data?.model}}</span>
+                        <p class="h4 m-0"><span class="pe-1">{{data.brand}}</span><span
+                              class="pe-1">{{data.model}}</span>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Brand</p>
-                        <p class="fs-14 fw-bold">{{data?.brand}}</p>
+                        <p class="fs-14 fw-bold">{{data.brand}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Model</p>
-                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign pe-1"></span>{{data?.model}}</p>
+                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign pe-1"></span>{{data.model}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Year</p>
-                        <p class="fs-14 fw-bold">{{data?.year}}</p>
+                        <p class="fs-14 fw-bold">{{data.year}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Power</p>
-                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign px-1"></span>{{data?.power}} hp</p>
+                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign px-1"></span>{{data.power}} hp</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Мileage</p>
-                        <p class="fs-14 fw-bold">{{data?.mileage}} km</p>
+                        <p class="fs-14 fw-bold">{{data.mileage}} km</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Populated place</p>
-                        <p class="fs-14 fw-bold">{{data?.populatedState}}</p>
+                        <p class="fs-14 fw-bold">{{data.populatedState}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Doors</p>
-                        <p class="fs-14 fw-bold">{{data?.doors}}</p>
+                        <p class="fs-14 fw-bold">{{data.doors}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Color</p>
-                        <p class="fs-14 fw-bold">{{data?.color}}</p>
+                        <p class="fs-14 fw-bold">{{data.color}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Condition</p>
-                        <p class="fs-14 fw-bold">{{data?.condition}}</p>
+                        <p class="fs-14 fw-bold">{{data.condition}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Transmission</p>
-                        <p class="fs-14 fw-bold">{{data?.transmission}}</p>
+                        <p class="fs-14 fw-bold">{{data.transmission}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Engine type</p>
-                        <p class="fs-14 fw-bold">{{data?.engineType}}</p>
+                        <p class="fs-14 fw-bold">{{data.engineType}}</p>
                      </div>
                      <div class="d-flex justify-content-between mb-2">
                         <p class="textmuted">Category</p>
-                        <p class="fs-14 fw-bold">{{data?.category}}</p>
+                        <p class="fs-14 fw-bold">{{data.category}}</p>
                      </div>
                   </div>
 
@@ -80,19 +79,19 @@
                         <p class="h4 m-0"><span class="pe-1">Description</span>
                      </div>
                      <div class="d-flex justify-content-between mb-2 description">
-                        <p>{{data?.description}}</p>
+                        <p>{{data.description}}</p>
                      </div>
 
-                     <div class="action-buttons">
-                        <a routerLink="/offers/edit/{{data?._id}}" type="button" class="btn btn-info">Edit</a>
-                        <a type="button" class="btn btn-danger">Delete</a>
-                     </div>
-                  
-                     
+                      <div class="action-buttons">
+                        <a routerLink="/offers/edit/{{data._id}}" type="button" class="btn btn-info"  *ngIf="user?._id == data.creator">Edit</a>
+                        <a type="button" class="btn btn-danger" *ngIf="user?._id == data.creator">Delete</a>
+                     </div> 
+
+
 
                   </div>
 
-                
+
 
                   <div class="col-12 userDetails">
                      <div class="row bg-light m-0">
@@ -132,12 +131,8 @@
             </div>
          </div>
 
-        
 
       </div>
-    
    </div>
-   </div>
-
-
-  
+</div>
+<app-spinner *ngIf="isLoading"></app-spinner>

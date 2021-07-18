@@ -7,27 +7,21 @@
                 <div class="row">
                     <div class="sel">
                         <label>Brand</label>
-                        <select id="sub" name="brand" formControlName="brand" required>
+                        <select id="sub" name="brand" formControlName="brand" (change)="getModels(editForm.value.brand)" required>
                             <option value="" selected hidden>Choose brand</option>
-                            <option>BMW</option>
-                            <option>Mercedes</option>
-                            <option>VW</option>
+                            <option  *ngFor="let brand of brands">{{brand}}</option>
+                           
                         </select>
-                        <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
+                        <div class="error-message" *ngIf="submitted && f.brand.errors?.required">Brand field is required!</div>
                     </div>
                     <div class="sel">
                         <label>Model</label>
                         <select id="sub" name="model" formControlName="model" required>
-                            <option value="" selected hidden>Choose model</option>
-                            <option>Sedan</option>
-                            <option>Jeep</option>
-                            <option>Van</option>
-                            <option>Convertible</option>
-                            <option>Station Wagon</option>
-                            <option>Coupe</option>
-                            <option>Hatchback</option>
+                            <option value="" selected hidden >Choose model</option>
+                            <option value="" *ngFor="let model of models">{{model}}</option>
+                         
                         </select>
-                        <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div>
+                        <div class="error-message" *ngIf="submitted && f.model.errors?.required">Model field is required!</div>
                     </div>
                 </div>
                 <div class="row">

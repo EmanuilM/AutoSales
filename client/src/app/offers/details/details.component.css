@@ -39,6 +39,12 @@
     /* background-color: white; */
     padding: 0
 }
+.delete-button { 
+    float: right;
+    position: relative;
+    left: -100px;
+    top: 475px;
+}
 
 .form-control {
     height: 25px;

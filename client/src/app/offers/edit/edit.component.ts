@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { OffersService } from 'src/app/services/offers.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
+import * as carsData from '../../shared/carsData.json';
+
 
 @Component({
   selector: 'app-edit',
@@ -15,6 +17,9 @@ export class EditComponent implements OnInit {
   editForm : FormGroup;
   submitted = false;
   offerID : string;
+  brands = [];
+  models = [];
+  currentCarsData = {};
 
   constructor(private fb : FormBuilder , private offerService : OffersService , private router : ActivatedRoute) { 
 
@@ -39,6 +44,9 @@ export class EditComponent implements OnInit {
   get f() { return this.editForm.controls; }
 
   ngOnInit(): void {
+    this.currentCarsData = carsData['default'];
+    this.brands = Object.keys(this.currentCarsData);
+
     this.router.params.subscribe(x => this.offerID = x['id']);
     console.log(this.offerID);
     
@@ -47,8 +55,10 @@ export class EditComponent implements OnInit {
     .pipe(first())
     .subscribe(x => this.editForm.patchValue(x))
 
-   
-    
+  }
+
+  getModels(brand) { 
+    this.models = Object.values(this.currentCarsData[brand])
   }
 
   edit() { 

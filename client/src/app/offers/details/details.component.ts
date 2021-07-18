@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap, tap } from 'rxjs/operators';
 import { OffersService } from 'src/app/services/offers.service';
+import { UserService } from 'src/app/services/user.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
 import { IUser } from 'src/app/shared/interfaces/user';
 
@@ -15,15 +17,21 @@ export class DetailsComponent implements OnInit {
   images = [];
   user : IUser;
   isLoading : boolean;
-  constructor(private offersService : OffersService , private router : ActivatedRoute) { }
+  constructor(private offersService : OffersService , private router : ActivatedRoute , private userService : UserService) { }
 
   ngOnInit(): void {
-    console.log("user" + this.user);
-    
+    this.isLoading = true;
+
+    this.userService.getCurrentUserData().subscribe(x => { 
+      this.user = x;
+    })
    this.router.params.subscribe(x => {
      this.carID = x['id'];
    })
-   this.isLoading = true;
+   this.userService.getCurrentUserData().subscribe(x => { 
+     this.user = x;
+   })
+   
    this.offersService.getOfferDetails(this.carID).subscribe(x => {
      this.data = x;
      this.images = x.imageURLs;
@@ -31,5 +39,7 @@ export class DetailsComponent implements OnInit {
      console.log(this.data);
    })
   }
+
+
 
 }
