@@ -11,6 +11,7 @@ export interface IOffer{
     mileage : number,
     populatedState : string,
     price : number,
+    condition : string,
     description : string,
     transmission : string,
     engineType : string,

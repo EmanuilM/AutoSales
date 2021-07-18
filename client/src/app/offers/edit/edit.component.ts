@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { first } from 'rxjs/operators';
+import { OffersService } from 'src/app/services/offers.service';
+import { IOffer } from 'src/app/shared/interfaces/offer';
 
 @Component({
   selector: 'app-edit',
@@ -10,8 +14,9 @@ export class EditComponent implements OnInit {
 
   editForm : FormGroup;
   submitted = false;
+  offerID : string;
 
-  constructor(private fb : FormBuilder) { 
+  constructor(private fb : FormBuilder , private offerService : OffersService , private router : ActivatedRoute) { 
 
     this.editForm = fb.group({
       brand: ['', [Validators.required], []],
@@ -34,6 +39,16 @@ export class EditComponent implements OnInit {
   get f() { return this.editForm.controls; }
 
   ngOnInit(): void {
+    this.router.params.subscribe(x => this.offerID = x['id']);
+    console.log(this.offerID);
+    
+    
+    this.offerService.getOfferDetails(this.offerID)
+    .pipe(first())
+    .subscribe(x => this.editForm.patchValue(x))
+
+   
+    
   }
 
   edit() { 

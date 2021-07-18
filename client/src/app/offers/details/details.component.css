@@ -165,7 +165,31 @@ h5,
 }
 
 
+
+/* .btn-info { 
+    top: 90%;
+    width: 7%;
+}
+.btn-danger { 
+    top: 90%;
+    right: 74%;
+    width: 8%;
+} */
+
+
 @media(max-width: 990px) {
+    .action-buttons { 
+        justify-content: flex-start;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+    }
+
+    .action-buttons a{ 
+      width : 94px;
+    }
+
     .carousel-content { 
     position: absolute;
     left: -8%;
@@ -180,9 +204,10 @@ h5,
    }
 
    .phoneNumber { 
-    position: absolute;
-    top: 2%;
-    right: 75%;
+    display: flex;
+    position: relative;
+    right: -145px;
+    top: -79px;
    }
 
   .username { 
@@ -233,6 +258,24 @@ h5,
 
 
  @media(min-width: 991px) {
+    .fs-14 { 
+        text-align: right;
+    }
+    .action-buttons { 
+        display: flex;
+        align-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        position: relative;
+        bottom: -206px;
+        right: -339%;
+        justify-content: space-around;
+    }
+    .action-buttons a { 
+      width: 94px;
+    }
+
     .carInfo { 
         position: absolute;
         right: -284%;
@@ -258,5 +301,7 @@ h5,
      }
     
 } 
+
+
 
 

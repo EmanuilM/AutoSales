@@ -25,7 +25,6 @@ router.get('/catalogue' , async (req,res) => {
 router.get('/catalogue/:id' , async (req,res) => { 
     try {
         const offer = await offerService.getDataById(req.params.id);
-        console.log(offer);
         res.status(200).json(offer);
     } catch (err) {
         res.status(400).json(err);
@@ -36,7 +35,6 @@ router.get('/next' , async (req,res) => {
     try {
         const offers = await offerService.getNext(Number(req.query.lastOffersID));
         res.status(200).json(offers);
-        console.log(req.query);
     } catch (err) {
         res.status(400).json(err);
         

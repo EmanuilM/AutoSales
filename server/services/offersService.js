@@ -1,6 +1,7 @@
 const offerModel = require('../models/offersModel');
 
 async function createOffer(data, userID) {
+    
     const {
         brand,
         model,
@@ -11,6 +12,7 @@ async function createOffer(data, userID) {
         mileage,
         populatedState,
         price,
+        condition,
         description,
         transmission,
         engineType,
@@ -33,6 +35,7 @@ async function createOffer(data, userID) {
         mileage,
         populatedState,
         price,
+        condition,
         description,
         transmission,
         engineType,

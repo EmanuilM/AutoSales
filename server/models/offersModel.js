@@ -34,6 +34,10 @@ const offerSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    condition : {
+        type: String,
+        required: true,
+    },
     doors: {
         type: Number,
         required: true,

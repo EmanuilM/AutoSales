@@ -28,5 +28,7 @@ export class OffersService {
     return this.http.get<IOffer>('/api/offers/catalogue/' + id);
   }
 
+ 
+
   
 }
