@@ -1,3 +1,4 @@
+<div *ngIf="!isAuth">
 <ngb-carousel>
   <ng-template ngbSlide>
     <div class="carousel-item active" style="background-image:url(https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1147&q=80)">
@@ -83,4 +84,11 @@
       <button mat-button>Details</button>
     </mat-card-actions>
   </mat-card>
+</div>
+</div>
+
+<div class="loggedIn" *ngIf="isAuth">
+  <img src="https://wallpaperaccess.com/full/915116.jpg">
+  <h1>Find your dream car right now</h1>
+
 </div>
