@@ -17,8 +17,8 @@
                     <div class="sel">
                         <label>Model</label>
                         <select id="sub" name="model" formControlName="model" required>
-                            <option value="" selected hidden >Choose model</option>
-                            <option value="E60" *ngFor="let model of models">{{model}}</option>
+                            <option  selected hidden >Choose model</option>
+                            <option *ngFor="let model of models">{{model}}</option>
                          
                         </select>
                         {{editForm.value.model | json}}

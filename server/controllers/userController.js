@@ -5,7 +5,7 @@ const userService = require('../services/userService');
 
 router.get('/currentUser', async (req, res) => {
     try {
-        const currentUser = await userService.getCurrentUser(req.user._id);
+        const currentUser = await userService.getCurrentUser(req.headers.referer.split('/details/')[1]);
         res.status(200).json(currentUser)
 
 

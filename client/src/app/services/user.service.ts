@@ -39,7 +39,7 @@ export class UserService {
     })))
   }
 
-  getCurrentUserData() : Observable<IUser>{
-    return this.http.get<IUser>('/api/user/currentUser' , {withCredentials : true});
+  getCurrentUserData() : Observable<any>{
+    return this.http.get<any>('/api/user/currentUser');
   }
 }
