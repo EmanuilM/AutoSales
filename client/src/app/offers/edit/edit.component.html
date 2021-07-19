@@ -21,7 +21,6 @@
                             <option *ngFor="let model of models">{{model}}</option>
                          
                         </select>
-                        {{editForm.value.model | json}}
                         <div class="error-message" *ngIf="submitted && f.model.errors?.required">Model field is required!</div>
                     </div>
                 </div>

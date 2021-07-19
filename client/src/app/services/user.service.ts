@@ -39,7 +39,12 @@ export class UserService {
     })))
   }
 
-  getCurrentUserData() : Observable<any>{
-    return this.http.get<any>('/api/user/currentUser');
+  getCreatorData() : Observable<any>{
+    return this.http.get<any>('/api/user/creatorData');
   }
+
+  getCurrentUser() : Observable<IUser> { 
+    return this.http.get<IUser>('/api/user/currentUser');
+  }
+
 }

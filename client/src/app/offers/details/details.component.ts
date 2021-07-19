@@ -16,21 +16,28 @@ export class DetailsComponent implements OnInit {
   data  : IOffer;
   images = [];
   creator : IUser;
+  user : IUser;
   isLoading : boolean;
   constructor(private offersService : OffersService , private router : ActivatedRoute , private userService : UserService) { }
 
   ngOnInit(): void {
     this.isLoading = true;
+    
+    this.userService.getCurrentUser().subscribe(x => {
+      this.user = x;
+      console.log(x);
+    })
 
     this.router.params.subscribe(x => {
       this.carID = x['id'];
     })
 
-    this.userService.getCurrentUserData().subscribe(x => { 
+    this.userService.getCreatorData().subscribe(x => { 
       this.creator = x;
-      console.log(this.creator);
       
     })
+
+  
 
    this.offersService.getOfferDetails(this.carID).subscribe(x => {
      this.data = x;
