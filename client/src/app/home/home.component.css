@@ -7,6 +7,14 @@
     background-size: cover;
 }
 
+.offerH1 { 
+  display: flex;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+
+
 .container { 
     position: absolute;
     bottom: 0;
