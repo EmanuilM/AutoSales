@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timer } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { OffersService } from 'src/app/services/offers.service';
+import { OffersService } from 'src/app/shared/services/offers.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
 import * as carsData from '../../shared/carsData.json';
 

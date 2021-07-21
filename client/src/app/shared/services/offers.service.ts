@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IOffer } from '../shared/interfaces/offer';
+import { IOffer } from '../interfaces/offer';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +32,9 @@ export class OffersService {
     return this.http.post<any>('/api/offers/edit/' + id , body , {withCredentials : true});
   }
 
- 
+ search(brand , model) : Observable<any> { 
+    return this.http.get<any>(`/api/offers/search?brand=${brand}&model=${model}`)
+ }
 
   
 }

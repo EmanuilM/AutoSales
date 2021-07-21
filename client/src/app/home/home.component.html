@@ -91,57 +91,29 @@
 <div class="loggedIn">
   <img src="https://wallpaperaccess.com/full/915116.jpg">
   <h1>Find your dream car right now</h1>
+  <form [formGroup]="searchOffers">
+  <div class="search-box">
+  <div class="brand">
+    
+ <select formControlName="brand">
+   <option >Any</option>
+   <option>BMW</option>
+   <option >Volvo</option>
+   <option >Mercedes</option>
+ </select>
 </div>
-<h1 class="offerH1">Last Published Offers</h1>
-<mat-card class="offer-card">
-  <mat-card-header>
-    <mat-card-title>Mercedes</mat-card-title>
-    <mat-card-subtitle>Model</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Details</button>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="offer-card">
-  <mat-card-header>
-    <mat-card-title>Mercedes</mat-card-title>
-    <mat-card-subtitle>Model</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Details</button>
-  </mat-card-actions>
-</mat-card>
-<mat-card class="offer-card">
-  <mat-card-header>
-    <mat-card-title>Mercedes</mat-card-title>
-    <mat-card-subtitle>Model</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Details</button>
-  </mat-card-actions>
-</mat-card>
+
+
+<div class="model">
+  <select formControlName="model">
+    <option>Any</option>
+    <option>E36</option>
+  </select>
+</div>
+<button (click)="search(searchOffers.value)" type="button">Search</button>
+
+</div>
+</form>
+
+</div>
 </div>

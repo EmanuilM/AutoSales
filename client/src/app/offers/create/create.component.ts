@@ -2,8 +2,8 @@ import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OffersService } from '../../services/offers.service';
-import { UploadService } from '../../services/upload.service';
+import { OffersService } from '../../shared/services/offers.service';
+import { UploadService } from '../../shared/services/upload.service';
 import * as carsData from '../../shared/carsData.json';
 
 

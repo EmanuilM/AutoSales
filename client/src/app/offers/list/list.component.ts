@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { timer } from 'rxjs';
-import { OffersService } from 'src/app/services/offers.service';
-import { UserService } from 'src/app/services/user.service';
+import { OffersService } from 'src/app/shared/services/offers.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-list',

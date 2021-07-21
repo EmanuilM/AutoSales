@@ -61,7 +61,14 @@ async function getNext(offset) {
 
 async function edit(id , newData) { 
   return await offerModel.findById(id).updateOne(newData);
- 
+}
+
+async function simpleSearch(brand,model) { 
+   if(brand === 'Any' && model === 'Any') { 
+       return await offerModel.find();
+   }else if(brand !== 'Any' && model === 'Any'){
+       return await offerModel.find({brand});
+   }
 }
 
 module.exports = {
@@ -70,4 +77,5 @@ module.exports = {
     getDataById,
     getNext,
     edit,
+    simpleSearch,
 }

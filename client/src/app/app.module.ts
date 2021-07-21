@@ -23,6 +23,7 @@ import { MaterialModule } from './material/material.module';
     UserModule,
     OffersModule,
     MaterialModule,
+    
   ],
   providers: [],
   bootstrap: [

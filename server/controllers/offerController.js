@@ -50,6 +50,15 @@ router.post('/edit/:id' , async (req,res) => {
     }
 });
 
+router.get('/search' , async  (req,res) => { 
+    try {
+        const result = await offerService.simpleSearch(req.query.brand , req.query.model);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
 
 
 

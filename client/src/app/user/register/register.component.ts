@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, timer } from 'rxjs';
 import { MustMatch } from 'src/app/Validators/passwordValidator';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../shared/services/user.service';
 
 
 

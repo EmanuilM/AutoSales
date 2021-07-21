@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { isTypeQueryNode } from 'typescript';
-import { IUser } from '../shared/interfaces/user';
+import { IUser } from '../interfaces/user';
 
 
 @Injectable({
