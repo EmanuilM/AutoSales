@@ -38,8 +38,10 @@ export class ListComponent implements OnInit  {
     })).subscribe(x => { 
       x.length === 0 ? this.emptyCatalogue = true : this.catalogue = x;
       this.isLoading = false;
-      console.log(x);
     })
+
+    console.log(this.query);
+    
   }
 
 

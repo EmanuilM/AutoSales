@@ -40,12 +40,6 @@ export class HomeComponent implements OnInit  {
       Object.assign(query,{model:data.model});
     }
     this.router.navigate(['/offers/list'] , { queryParams: query });
-    // console.log(data);
-    // this.offerService.search(data.brand , data.model).subscribe(x => { 
-    // })
-
-
-
   }
 
 }
