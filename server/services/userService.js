@@ -13,7 +13,7 @@ async function getCreatorData(id) {
 }
 
 async function getCurrentUserData(id) { 
-    return await userModel.findById(id);
+    return  await userModel.findById(id);
 }
 
 module.exports = { 

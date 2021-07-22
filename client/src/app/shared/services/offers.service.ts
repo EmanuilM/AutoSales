@@ -13,19 +13,19 @@ export class OffersService {
   constructor(private http: HttpClient) { }
 
   createOfferHandler(data : Object) : Observable<IOffer> { 
-    return this.http.post<IOffer>('/api/offers/create' , data);
+    return this.http.post<IOffer>('/api/offers/create' , data , {withCredentials : true});
   }
 
   catalogueOffers() : Observable<IOffer> { 
-    return this.http.get<IOffer>('/api/offers/catalogue');
+    return this.http.get<IOffer>('/api/offers/catalogue' ,  {withCredentials : true});
   }
 
   nextOffers(lastOffersID) : Observable<any> { 
-    return this.http.get<any>(`/api/offers/next?lastOffersID=${lastOffersID}`);
+    return this.http.get<any>(`/api/offers/next?lastOffersID=${lastOffersID}` , {withCredentials : true});
   }
 
   getOfferDetails(id) : Observable<IOffer> { 
-    return this.http.get<IOffer>('/api/offers/catalogue/' + id);
+    return this.http.get<IOffer>('/api/offers/catalogue/' + id , {withCredentials : true});
   }
 
   edit(id,body) : Observable<any> { 
@@ -33,7 +33,11 @@ export class OffersService {
   }
 
  search(brand , model) : Observable<any> { 
-    return this.http.get<any>(`/api/offers/search?brand=${brand}&model=${model}`)
+    return this.http.get<any>(`/api/offers/search?brand=${brand}&model=${model}` , {withCredentials : true})
+ }
+
+ deleteOffer(id,body) : Observable<any> {
+   return this.http.post<any>('/api/offers/delete/' + id , body ,{withCredentials : true});
  }
 
   

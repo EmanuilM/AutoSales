@@ -18,14 +18,18 @@ export class DetailsComponent implements OnInit {
   creator : IUser;
   user : IUser;
   isLoading : boolean;
-  constructor(private offersService : OffersService , private router : ActivatedRoute , private userService : UserService) { }
+  constructor(
+     private offersService : OffersService , 
+     private router : ActivatedRoute ,
+     private userService : UserService , 
+     private route : Router
+     ) { }
 
   ngOnInit(): void {
     this.isLoading = true;
     
     this.userService.getCurrentUser().subscribe(x => {
       this.user = x;
-      console.log(x);
     })
 
     this.router.params.subscribe(x => {
@@ -37,13 +41,26 @@ export class DetailsComponent implements OnInit {
       
     })
 
-  
-
    this.offersService.getOfferDetails(this.carID).subscribe(x => {
      this.data = x;
      this.images = x.imageURLs;
      this.isLoading = false;
    })
+  }
+
+
+  del(id) { 
+  const  body = this.data
+  this.isLoading = true;
+    this.offersService.deleteOffer(id , body).subscribe(x => { 
+      this.isLoading = false;
+      this.route.navigate(['/']);
+      console.log(x);
+    },
+    err =>{
+      this.isLoading = false;
+    }
+    )
   }
 
 

@@ -1,4 +1,5 @@
 const offerModel = require('../models/offersModel');
+const cloudinary = require("cloudinary").v2;
 
 async function createOffer(data, userID) {
     
@@ -63,6 +64,12 @@ async function edit(id , newData) {
   return await offerModel.findById(id).updateOne(newData);
 }
 
+async function deleteOffer(id , imageIDS) { 
+     await cloudinary.api.delete_resources(imageIDS);
+     return  await offerModel.deleteOne({_id : id});
+
+}
+
 async function simpleSearch(brand,model) { 
    if(brand === 'Any' && model === 'Any') { 
        return await offerModel.find();
@@ -71,11 +78,14 @@ async function simpleSearch(brand,model) {
    }
 }
 
+
+
 module.exports = {
     createOffer,
     getAllOffers,
     getDataById,
     getNext,
     edit,
+    deleteOffer,
     simpleSearch,
 }
