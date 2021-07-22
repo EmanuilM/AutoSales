@@ -5,6 +5,8 @@ import { OffersService } from 'src/app/shared/services/offers.service';
 import { UserService } from 'src/app/shared/services/user.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
 import { IUser } from 'src/app/shared/interfaces/user';
+import { forkJoin, of } from 'rxjs';
+
 
 @Component({
   selector: 'app-details',
@@ -20,32 +22,35 @@ export class DetailsComponent implements OnInit {
   isLoading : boolean;
   constructor(
      private offersService : OffersService , 
-     private router : ActivatedRoute ,
+     private route : ActivatedRoute ,
      private userService : UserService , 
-     private route : Router
+     private router : Router
      ) { }
 
   ngOnInit(): void {
     this.isLoading = true;
-    
-    this.userService.getCurrentUser().subscribe(x => {
-      this.user = x;
-    })
+ 
+    // this.router.params.subscribe(x => {
+    //   this.carID = x['id'];
+    // })
 
-    this.router.params.subscribe(x => {
+    this.route.params.pipe(switchMap(x => {
       this.carID = x['id'];
+      // return this.offersService.getOfferDetails(this.carID);
+      return of([this.offersService.getOfferDetails(this.carID) , this.userService.getCurrentUser() , this.userService.getCreatorData()])
+    })).pipe(switchMap(x =>  {
+      return forkJoin(x);
+    })).subscribe(([data,user,creator]) => {
+      this.images = data.imageURLs
+      this.data = data;
+      this.user = user;
+      this.creator = creator;
+      this.isLoading = false;
     })
 
-    this.userService.getCreatorData().subscribe(x => { 
-      this.creator = x;
-      
-    })
+    
 
-   this.offersService.getOfferDetails(this.carID).subscribe(x => {
-     this.data = x;
-     this.images = x.imageURLs;
-     this.isLoading = false;
-   })
+  
   }
 
 
@@ -54,7 +59,7 @@ export class DetailsComponent implements OnInit {
   this.isLoading = true;
     this.offersService.deleteOffer(id , body).subscribe(x => { 
       this.isLoading = false;
-      this.route.navigate(['/']);
+      this.router.navigate(['/']);
       console.log(x);
     },
     err =>{

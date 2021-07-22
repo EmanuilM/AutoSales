@@ -5,7 +5,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/header/header.component';
 import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
-import { HomeComponent } from './home/home.component';
 import { OffersModule } from './offers/offers.module';
 import { MaterialModule } from './material/material.module';
 
@@ -14,7 +13,6 @@ import { MaterialModule } from './material/material.module';
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +21,6 @@ import { MaterialModule } from './material/material.module';
     UserModule,
     OffersModule,
     MaterialModule,
-    
   ],
   providers: [],
   bootstrap: [

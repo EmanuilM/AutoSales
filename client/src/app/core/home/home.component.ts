@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { OffersService } from '../shared/services/offers.service';
-import { UserService } from '../shared/services/user.service';
+import { IOffer } from '../../shared/interfaces/offer';
+import { OffersService } from '../../shared/services/offers.service';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,10 @@ import { UserService } from '../shared/services/user.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit  {
-  @Input() test;
   get isAuth() : Boolean { 
     return this.userService.isAuth;
   }
+  offers : IOffer;
   searchOffers : FormGroup;
   constructor(private userService : UserService , private fb : FormBuilder , private offerService : OffersService , private router : Router) { 
     this.searchOffers = fb.group({
@@ -24,15 +25,27 @@ export class HomeComponent implements OnInit  {
  
 
   ngOnInit(): void {
-   
+    this.offerService.getLastOffers().subscribe(x => { 
+      this.offers = x;
+      console.log(this.offers);
+    })
   }
 
   search(data) { 
-    // this.router.navigate(['/offers/list']);
-    console.log(data);
-    this.offerService.search(data.brand , data.model).subscribe(x => { 
-      this.test = x;
-    })
+    const query = {};
+    if(data.brand !== "Any") { 
+      Object.assign(query,{brand:data.brand});
+    }
+    if(data.model !== "Any") { 
+      Object.assign(query,{model:data.model});
+    }
+    this.router.navigate(['/offers/list'] , { queryParams: query });
+    // console.log(data);
+    // this.offerService.search(data.brand , data.model).subscribe(x => { 
+    // })
+
+
+
   }
 
 }

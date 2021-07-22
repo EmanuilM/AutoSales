@@ -33,7 +33,7 @@ router.get('/catalogue/:id' , async (req,res) => {
 
 router.get('/next' , async (req,res) => { 
     try {
-        const offers = await offerService.getNext(Number(req.query.lastOffersID));
+        const offers = await offerService.getNext(Number(req.query.lastOffersID) , req.query.brand , req.query.model );
         res.status(200).json(offers);
     } catch (err) {
         res.status(400).json(err);
@@ -63,6 +63,15 @@ router.get('/search' , async  (req,res) => {
     try {
         const result = await offerService.simpleSearch(req.query.brand , req.query.model);
         res.status(200).json(result);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.get('/lastOffers' , async (req,res) => {
+    try {
+        const lastOffers =  await offerService.getLastOffers();
+        res.status(200).json(lastOffers);
     } catch (err) {
         res.status(400).json(err);
     }

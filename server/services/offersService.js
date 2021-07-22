@@ -2,7 +2,7 @@ const offerModel = require('../models/offersModel');
 const cloudinary = require("cloudinary").v2;
 
 async function createOffer(data, userID) {
-    
+
     const {
         brand,
         model,
@@ -17,7 +17,7 @@ async function createOffer(data, userID) {
         description,
         transmission,
         engineType,
-        category, 
+        category,
         imageIds,
         imageURLs
     } = data;
@@ -45,37 +45,51 @@ async function createOffer(data, userID) {
         imageURLs,
         creator: userID
     });
-   return offer.save();
+    return offer.save();
 }
 
 async function getAllOffers() {
     return await offerModel.find();
 }
 
-async function getDataById(id) { 
+async function getDataById(id) {
     return await offerModel.findById(id);
 }
 
-async function getNext(offset) { 
-    return await offerModel.find().skip(offset).limit(12);
+async function getNext(offset , brand , model) {
+    const query = {};
+    if (brand) {
+        query.brand = brand;
+    }
+    if (model) {
+        query.model = model;
+    }
+    return await offerModel.find(query).skip(offset).limit(12);
 }
 
-async function edit(id , newData) { 
-  return await offerModel.findById(id).updateOne(newData);
+async function edit(id, newData) {
+    return await offerModel.findById(id).updateOne(newData);
 }
 
-async function deleteOffer(id , imageIDS) { 
-     await cloudinary.api.delete_resources(imageIDS);
-     return  await offerModel.deleteOne({_id : id});
+async function deleteOffer(id, imageIDS) {
+    await cloudinary.api.delete_resources(imageIDS);
+    return await offerModel.deleteOne({ _id: id });
 
 }
 
-async function simpleSearch(brand,model) { 
-   if(brand === 'Any' && model === 'Any') { 
-       return await offerModel.find();
-   }else if(brand !== 'Any' && model === 'Any'){
-       return await offerModel.find({brand});
-   }
+// async function simpleSearch(brand, model) {
+//     const query = {};
+//     if (brand) {
+//         query.brand = brand;
+//     }
+//     if (model) {
+//         query.model = model;
+//     }
+//     return await offerModel.find(query);
+// }
+
+async function getLastOffers() {
+    return await offerModel.find().sort(({ _id: -1 })).limit(3);
 }
 
 
@@ -87,5 +101,6 @@ module.exports = {
     getNext,
     edit,
     deleteOffer,
-    simpleSearch,
+    // simpleSearch,
+    getLastOffers,
 }

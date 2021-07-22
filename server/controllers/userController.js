@@ -17,8 +17,9 @@ router.get('/creatorData', async (req, res) => {
 router.get('/currentUser' , async (req,res) => { 
         if(req.user) { 
             const currentUser =  await userService.getCurrentUserData(req.user._id);
-            res.status(200).json(currentUser);
+           return res.status(200).json(currentUser);
         }
+        res.json({});
 })
 
 module.exports = router;
