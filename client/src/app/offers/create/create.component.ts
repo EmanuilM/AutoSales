@@ -25,7 +25,7 @@ export class CreateComponent implements OnInit {
   models = [];
   currentCarsData = {};
   error : string;
-  isLoading : boolean;
+  isLoading : boolean = false;
 
   
   constructor(

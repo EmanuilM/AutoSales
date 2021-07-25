@@ -14,7 +14,7 @@ export class ListComponent implements OnInit  {
   catalogue = [];
   emptyCatalogue : boolean;
   isOffersLoading : boolean;
-  isLoading : boolean;
+  isLoading : boolean = false;;
   query : Params;
 
   get isAuth() : Boolean { 

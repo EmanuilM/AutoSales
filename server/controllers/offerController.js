@@ -2,6 +2,7 @@ const { Router } = require('express');
 const router = Router();
 const offerService = require('../services/offersService');
 const isAuth = require('../middlewares/isAuthenticated');
+const userModel = require('../models/user');
 
 
 router.post('/create', isAuth , async (req, res) => {
@@ -76,6 +77,7 @@ router.get('/lastOffers' , async (req,res) => {
         res.status(400).json(err);
     }
 });
+
 
 
 

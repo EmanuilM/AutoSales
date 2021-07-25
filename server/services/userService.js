@@ -13,7 +13,13 @@ async function getCreatorData(id) {
 }
 
 async function getCurrentUserData(id) { 
-    return  await userModel.findById(id);
+    const userDetails = await userModel.findById(id);
+    return { 
+        email : userDetails.email,
+        username : userDetails.username,
+        phoneNumber : userDetails.phoneNumber,
+        offers : userDetails.offers,
+    }
 }
 
 module.exports = { 

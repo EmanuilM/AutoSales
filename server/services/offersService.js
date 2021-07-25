@@ -1,4 +1,5 @@
 const offerModel = require('../models/offersModel');
+const userModel = require('../models/user');
 const cloudinary = require("cloudinary").v2;
 
 async function createOffer(data, userID) {

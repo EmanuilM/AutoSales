@@ -35,14 +35,6 @@ export class OffersService {
     return this.http.post<any>('/api/offers/edit/' + id , body , {withCredentials : true});
   }
 
-//  search(brand , model) : Observable<any> { 
-//    let query = '?';
-//    if(brand) query += `brand=${brand}`;
-//    if(model) query += `model=${model}`;
-
-//     return this.http.get<any>(`/api/offers/search` + query , {withCredentials : true})
-//  }
-
  deleteOffer(id,body) : Observable<any> {
    return this.http.post<any>('/api/offers/delete/' + id , body ,{withCredentials : true});
  }

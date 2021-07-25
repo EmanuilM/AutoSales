@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   submitted = false;
   error : string;
-  isLoading : boolean;
+  isLoading : boolean = false;
 
   constructor(private fb : FormBuilder , private userService : UserService , private router : Router) {
     this.loginForm = fb.group({

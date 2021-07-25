@@ -21,7 +21,7 @@ export class EditComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
-  isLoading : boolean;
+  isLoading : boolean = false;
   error : string;
 
   constructor(

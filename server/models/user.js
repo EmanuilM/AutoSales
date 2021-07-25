@@ -25,7 +25,8 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true,
         minlength : [4 , "Password should be at least 4 characters long!"]
-    }
+    },
+    offers : [],
 })
 
 userSchema.pre('save' , function(next) { 

@@ -90,20 +90,11 @@
       height: 600px;
     }
 
-    .loggedInContent h2 { 
-      position: relative;
-      right: -13%;
-      width: 82%;
-      top: -316px;
-    }
+   
+    .loggedInContent { 
 
-    .loggedInContent h1 { 
-      position: relative;
-      right: -16%;
-      width: 89%;
-      top: -316px;
     }
-
+   
   
 }
 
@@ -185,8 +176,8 @@
 
 .loggedInContent h1 { 
   position: relative;
-    right: -29%;
-    width: 36%;
-    top: -316px;
+  right: -38%;
+  width: 36%;
+  top: -316px;
 }
 

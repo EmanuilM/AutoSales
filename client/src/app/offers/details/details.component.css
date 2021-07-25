@@ -220,45 +220,6 @@ h5,
   
 }
 
-
-
-/* @media(min-width: 1400px) {
-  .carInfo { 
-    position: absolute;
-    right: -286%;
-  }
-  .detailsDescription {
-    position: absolute;
-    right: -15%;
-    top: 530px;
-  }
-
-  .detailsDescription p { 
-    position: absolute;
-    right: -165%;
-    width: 286%;
-  }
-
- .userDetails{
-    position: absolute;
-    right: -290%;
-    top: 436px;
- }
-
- .email{
-    position: absolute;
-    top: -24px;
- }
-
- .phoneNumber { 
-    position: absolute;
-    top: 70px;
- }
-
-
-} */
-
-
  @media(min-width: 991px) {
     .fs-14 { 
         text-align: right;
