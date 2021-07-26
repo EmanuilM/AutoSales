@@ -36,11 +36,15 @@ export class OffersService {
   }
 
  deleteOffer(id,body) : Observable<any> {
-   return this.http.post<any>('/api/offers/delete/' + id , body ,{withCredentials : true});
+   return this.http.post<any>('/api/offers/delete/' + id , body , {withCredentials : true});
  }
 
  getLastOffers() : Observable<IOffer> { 
-   return this.http.get<IOffer>('/api/offers/lastOffers');
+   return this.http.get<IOffer>('/api/offers/lastOffers' , {withCredentials : true});
+ }
+
+ getUserOffers() : Observable<IOffer> { 
+   return this.http.get<IOffer>('/api/offers/userOffers'  ,  {withCredentials : true});
  }
 
   

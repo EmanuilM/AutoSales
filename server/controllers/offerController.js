@@ -3,15 +3,24 @@ const router = Router();
 const offerService = require('../services/offersService');
 const isAuth = require('../middlewares/isAuthenticated');
 const userModel = require('../models/user');
+const cloudinary = require("cloudinary").v2
 
 
 router.post('/create', isAuth , async (req, res) => {
-    try {
-       const createdOffer = await offerService.createOffer(req.body , req.user._id);
+    const createdOffer = await  offerService.createOffer(req.body , req.user._id);
+    Promise.all([
+     await  userModel.updateOne({_id : req.user._id} , {$push : {offers : createdOffer._id}})
+    ]).then(result => {
+        console.log("in then");
         res.status(200).json(createdOffer._id);
-    } catch (err) {
-        res.status(400).json(err);
-    }
+    }).catch(error => {
+        console.log(error);
+        console.log('in catch');
+        cloudinary.uploader.destroy(req.body.imageIds);
+        return res.status(400).json({ message: err.message });
+    })
+           
+      
 });
 
 router.get('/catalogue' , async (req,res) => { 
@@ -60,14 +69,6 @@ router.post('/delete/:id' , async (req,res) => {
     }
 });
 
-router.get('/search' , async  (req,res) => { 
-    try {
-        const result = await offerService.simpleSearch(req.query.brand , req.query.model);
-        res.status(200).json(result);
-    } catch (err) {
-        res.status(400).json(err);
-    }
-});
 
 router.get('/lastOffers' , async (req,res) => {
     try {
@@ -77,6 +78,24 @@ router.get('/lastOffers' , async (req,res) => {
         res.status(400).json(err);
     }
 });
+
+router.get('/userOffers' , async (req,res) => { 
+    try {
+        const currentUserOffers = await offerService.getCurrentUserOffers(req.user._id);
+        res.status(200).json(currentUserOffers);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+});
+
+router.get('/search' , async (req,res) => { 
+    try {
+        console.log(req.query);
+        const result = await offerService.advancedSearch();
+    } catch (err) {
+        res.status(400).json(err);
+    }
+})
 
 
 

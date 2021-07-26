@@ -61,7 +61,7 @@ export class CreateComponent implements OnInit {
   
   
   getModels(brand) { 
-    this.models = Object.values(this.currentCarsData[brand])
+    this.models = Object.values(this.currentCarsData[brand]);
   }
 
 

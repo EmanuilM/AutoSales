@@ -176,8 +176,18 @@
 
 .loggedInContent h1 { 
   position: relative;
-  right: -38%;
+  right: -41%;
   width: 36%;
   top: -316px;
 }
+
+@media(max-width: 680px) {
+  .loggedInContent h1 { 
+    position: relative;
+    right: -7%;
+    width: 65%;
+    top: -316px;
+  }
+}
+
 

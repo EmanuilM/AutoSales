@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
+import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 
 
 
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     ListComponent,
     EditComponent,
     DetailsComponent,
+    AdvancedSearchComponent,
   ],
   imports: [
     CommonModule,

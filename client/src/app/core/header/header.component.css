@@ -1,7 +1,10 @@
 .sidenav-container {
   /* height: 100%; */
 }
-
+.mat-toolbar.mat-primary{
+  background: #545353;
+  color: #fff;
+}
 .sidenav {
   width: 200px;
 }

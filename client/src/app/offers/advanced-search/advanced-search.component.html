@@ -1,0 +1,124 @@
+
+<div class="content">
+    <form [formGroup]="advancedSearchForm">
+        <div class="wrapper rounded bg-white">
+            <div class="h3">Advanced Search</div>
+            <div class="form">
+                <div class="row">
+                    <div class="sel">
+                        <label>Brand</label>
+                        <select id="sub" name="brand"  formControlName="brand" (change)="getModels(advancedSearchForm.value.brand)"> 
+                            <option value="" selected hidden>Any</option>
+                            <option  *ngFor="let brand of brands">{{brand}}</option>
+                            
+                            
+                        
+                         </select> 
+                    </div>
+    
+                    <div class="sel">
+                        <label>Model</label>
+                        <select id="sub" name="model" formControlName="model" required>
+                            <option selected hidden>Any</option>
+                            <option  *ngFor="let model of models">{{model}}</option>
+                           
+                            
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Year From</label>
+                        <input formControlName="yearFrom" type="number" class="form-control" name="color" placeholder="Any" required>
+
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Year To</label>
+                        <input formControlName="yearTo" type="number" class="form-control" name="color" placeholder="Any" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Power</label>
+                        <input formControlName="power" type="number" class="form-control" name="power" placeholder="Any" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Мileage</label>
+                        <input formControlName="mileage" type="number" class="form-control" name="mileage" placeholder="Any" required>
+
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Populated place</label>
+                        <input formControlName="populatedState" type="text" class="form-control" name="populatedState" placeholder="Any" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Price</label>
+                        <input formControlName="price" type="number" class="form-control" name="price" placeholder="Any" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Doors</label>
+                        <input formControlName="doors" type="number" class="form-control" name="doors" placeholder="Any" required>
+                    </div>
+                    <div class="col-md-6 mt-md-0 mt-3">
+                        <label>Color</label>
+                        <input formControlName="color" type="text" class="form-control" name="description" placeholder="Any" required>
+                    </div>
+                </div>
+                <div class=" my-md-2 my-3">
+                    <label>Condition</label>
+                    <select id="sub" name="condition" formControlName="condition" required>
+                        <option selected hidden>Any</option>
+                        <option>New</option>
+                        <option>Used</option>
+                    </select>
+                </div>
+                <div class=" my-md-2 my-3">
+                    <label>Тransmission</label>
+                    <select id="sub" name="transmission" formControlName="transmission" required>
+                        <option selected hidden>Any</option>
+                        <option>Automatic gearbox</option>
+                        <option>Manual gearbox</option>
+                        <option>Semi-automatic transmission</option>
+                    </select>
+                    <!-- <div class="error-message" *ngIf="submitted && f.transmission.errors?.required">Transmission field is required!</div> -->
+                </div>
+                <div class=" my-md-2 my-3">
+                    <label>Engine Type</label>
+                    <select id="sub" name="engineType" formControlName="engineType" required>
+                        <option selected hidden>Any</option>
+                        <option>Petrol</option>
+                        <option>Disel</option>
+                        <option>Petrol+CNG</option>
+                        <option>Methane</option>
+                        <option>Electric</option>
+                    </select>
+                    <!-- <div class="error-message" *ngIf="submitted && f.engineType.errors?.required">Engine type field is required!</div> -->
+                </div>
+                <div class=" my-md-2 my-3">
+                    <label>Categoty</label>
+                    <select id="sub" name="category" formControlName="category" required>
+                        <option selected hidden>Any</option>
+                        <option>Sedan</option>
+                        <option>Jeep</option>
+                        <option>Van</option>
+                        <option>Convertible</option>
+                        <option>Station Wagon</option>
+                        <option>Coupe</option>
+                        <option>Hatchback</option>
+                    </select>
+                    <!-- <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div> -->
+                </div>
+                <!-- <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!</div> -->
+            </div>
+            <button class="btn btn-primary mt-3" (click)="search(advancedSearchForm.value)">Search</button>
+        </div>
+    </form>
+</div>
+
+

@@ -46,6 +46,8 @@ async function createOffer(data, userID) {
         imageURLs,
         creator: userID
     });
+
+  
     return offer.save();
 }
 
@@ -78,19 +80,18 @@ async function deleteOffer(id, imageIDS) {
 
 }
 
-// async function simpleSearch(brand, model) {
-//     const query = {};
-//     if (brand) {
-//         query.brand = brand;
-//     }
-//     if (model) {
-//         query.model = model;
-//     }
-//     return await offerModel.find(query);
-// }
-
 async function getLastOffers() {
     return await offerModel.find().sort(({ _id: -1 })).limit(3);
+}
+
+async function getCurrentUserOffers(userID) { 
+    const user = await userModel.findOne({_id : userID});
+    const offers = await offerModel.find({_id : user.offers});
+    return offers;
+}
+
+async function advancedSearch() { 
+    
 }
 
 
@@ -102,6 +103,7 @@ module.exports = {
     getNext,
     edit,
     deleteOffer,
-    // simpleSearch,
     getLastOffers,
+    getCurrentUserOffers,
+    advancedSearch
 }

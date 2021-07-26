@@ -5,6 +5,8 @@ import { IOffer } from '../../shared/interfaces/offer';
 import { OffersService } from '../../shared/services/offers.service';
 import { UserService } from '../../shared/services/user.service';
 import * as carsData from '../../shared/carsData.json';
+import { switchMap, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit  {
   brands = [];
   models = [];
   currentCarsData = {};
+  isLoading : boolean = false;
   constructor(private userService : UserService , private fb : FormBuilder , private offerService : OffersService , private router : Router) { 
     this.searchOffers = fb.group({
       brand : ['Any' , [Validators.required] , []],
@@ -29,13 +32,17 @@ export class HomeComponent implements OnInit  {
  
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
 
-    this.offerService.getLastOffers().subscribe(x => { 
+    this.offerService.getLastOffers().subscribe(x => {
       this.offers = x;
-      console.log(this.offers);
     })
+
+    console.log(this.offers);
+    
+   
   }
 
   getModels(brand) { 
