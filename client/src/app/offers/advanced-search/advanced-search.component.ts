@@ -16,20 +16,20 @@ export class AdvancedSearchComponent implements OnInit {
 
   constructor(private fb : FormBuilder , private router : Router) {
     this.advancedSearchForm = fb.group({
-      brand: ['', [], []],
-      model: ['', [], []],
-      yearFrom: ['', [], []],
-      yearTo : ['', [], []],
-      color: ['', [], []],
-      power: ['', [], []],
-      mileage: ['', [], []],
-      populatedState: ['', [], []],
-      price: ['', [], []],
-      doors: ['', [], []],
-      condition: ['', [], []],
-      transmission: ['', [], []],
-      engineType: ['', [], []],
-      category: ['', [], []],
+      brand: ['Any', [], []],
+      model: ['Any', [], []],
+      yearFrom: ['Any', [], []],
+      yearTo : ['Any', [], []],
+      color: ['Any', [], []],
+      power: ['Any', [], []],
+      mileage: ['Any', [], []],
+      populatedState: ['Any', [], []],
+      price: ['Any', [], []],
+      doors: ['Any', [], []],
+      condition: ['Any', [], []],
+      transmission: ['Any', [], []],
+      engineType: ['Any', [], []],
+      category: ['Any', [], []],
     })
    }
 
@@ -43,51 +43,22 @@ export class AdvancedSearchComponent implements OnInit {
   }
 
   search(data) { 
-    console.log(data);
     const query = {};
-    if(data.brand !== "Any") { 
-      Object.assign(query , {brand : data.brand});
-    }
-    if(data.model !== "Any") { 
-      Object.assign(query , {model : data.model});
-    }
-    if(data.yearFrom !== "Any") { 
-      Object.assign(query , {yearFrom : data.yearFrom});
-    }
-    if(data.yearTo !== "Any") { 
-      Object.assign(query , {yearTo : data.yearTo});
-    }
-    if(data.power !== "Any") { 
-      Object.assign(query , {power : data.power});
-    }
-    if(data.mileage !== "Any") { 
-      Object.assign(query , {mileage : data.mileage});
-    }
-    if(data.populatedState !== "Any") { 
-      Object.assign(query , {populatedState : data.populatedState});
-    }
-    if(data.price !== "Any") { 
-      Object.assign(query , {price : data.price});
-    }
-    if(data.doors !== "Any") { 
-      Object.assign(query , {doors : data.doors});
-    }
-    if(data.color !== "Any") { 
-      Object.assign(query , {color : data.color});
-    }
-    if(data.condition !== "Any") { 
-      Object.assign(query , {condition : data.condition});
-    }
-    if(data.transmission !== "Any") { 
-      Object.assign(query , {transmission : data.transmission});
-    }
-    if(data.engineType !== "Any") { 
-      Object.assign(query , {engineType : data.engineType});
-    }
-    if(data.category !== "Any") { 
-      Object.assign(query , {category : data.category});
-    }
-    this.router.navigate(['/offers/list'] , {queryParams : query});
+    Object.entries(data).map(([x,y]) => { 
+      if(y !== "Any") { 
+        this.attachFields(x,y,query);
+      }
+    })
+   console.log(data);
+   
+    console.log(query);
+    
+    
+    // this.router.navigate(['/offers/list'] , {queryParams : query});
+  }
+
+  private attachFields(field,value,query) { 
+      Object.assign(query , {[field] : value});
   }
 
 }

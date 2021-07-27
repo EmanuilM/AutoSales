@@ -56,8 +56,6 @@ export class EditComponent implements OnInit {
     this.brands = Object.keys(this.currentCarsData);
 
     this.router.params.subscribe(x => this.offerID = x['id']);
-    console.log(this.offerID);
-    
     
     this.offerService.getOfferDetails(this.offerID)
     .pipe(first())

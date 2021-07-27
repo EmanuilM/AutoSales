@@ -30,13 +30,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
  
-    // this.router.params.subscribe(x => {
-    //   this.carID = x['id'];
-    // })
-
     this.route.params.pipe(switchMap(x => {
       this.carID = x['id'];
-      // return this.offersService.getOfferDetails(this.carID);
       return of([this.offersService.getOfferDetails(this.carID) , this.userService.getCurrentUser() , this.userService.getCreatorData()])
     })).pipe(switchMap(x =>  {
       return forkJoin(x);

@@ -19,14 +19,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.userService.getCurrentUser().subscribe(x => {
+    this.userService.getCurrentUser().pipe(switchMap(x => {
       this.user = x;
+      return this.offerService.getUserOffers()
+    })).subscribe(x => { 
+      this.offers = x;
+      this.isLoading = false;
     })
-    this.offerService.getUserOffers().subscribe(x => { 
-     this.offers = x;
-     console.log(this.offers);
-     
-    })
+   
   }
 
 }

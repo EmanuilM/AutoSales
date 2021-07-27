@@ -37,11 +37,10 @@ export class HomeComponent implements OnInit  {
     this.brands = Object.keys(this.currentCarsData);
 
     this.offerService.getLastOffers().subscribe(x => {
+      this.isLoading = false;
       this.offers = x;
     })
 
-    console.log(this.offers);
-    
    
   }
 

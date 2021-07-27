@@ -52,7 +52,7 @@
          <app-catalogue-spinner *ngIf="isOffersLoading"></app-catalogue-spinner>
       </div>
 
-      <div class="no-content" *ngIf="emptyCatalogue">
+      <div class="no-content" *ngIf="catalogue.length === 0">
          
          <div class="loggedIn" *ngIf="isAuth">
             <h1>There's not offers yet!</h1>

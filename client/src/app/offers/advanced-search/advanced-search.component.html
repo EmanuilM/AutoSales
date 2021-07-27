@@ -73,7 +73,7 @@
                 <div class=" my-md-2 my-3">
                     <label>Condition</label>
                     <select id="sub" name="condition" formControlName="condition" required>
-                        <option selected hidden>Any</option>
+                        <option value="" selected hidden>Any</option>
                         <option>New</option>
                         <option>Used</option>
                     </select>
@@ -81,17 +81,16 @@
                 <div class=" my-md-2 my-3">
                     <label>Тransmission</label>
                     <select id="sub" name="transmission" formControlName="transmission" required>
-                        <option selected hidden>Any</option>
+                        <option value="" selected hidden>Any</option>
                         <option>Automatic gearbox</option>
                         <option>Manual gearbox</option>
                         <option>Semi-automatic transmission</option>
                     </select>
-                    <!-- <div class="error-message" *ngIf="submitted && f.transmission.errors?.required">Transmission field is required!</div> -->
                 </div>
                 <div class=" my-md-2 my-3">
                     <label>Engine Type</label>
                     <select id="sub" name="engineType" formControlName="engineType" required>
-                        <option selected hidden>Any</option>
+                        <option value="" selected hidden>Any</option>
                         <option>Petrol</option>
                         <option>Disel</option>
                         <option>Petrol+CNG</option>
@@ -103,7 +102,7 @@
                 <div class=" my-md-2 my-3">
                     <label>Categoty</label>
                     <select id="sub" name="category" formControlName="category" required>
-                        <option selected hidden>Any</option>
+                        <option value="" selected hidden>Any</option>
                         <option>Sedan</option>
                         <option>Jeep</option>
                         <option>Van</option>
@@ -112,9 +111,7 @@
                         <option>Coupe</option>
                         <option>Hatchback</option>
                     </select>
-                    <!-- <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is required!</div> -->
                 </div>
-                <!-- <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!</div> -->
             </div>
             <button class="btn btn-primary mt-3" (click)="search(advancedSearchForm.value)">Search</button>
         </div>
