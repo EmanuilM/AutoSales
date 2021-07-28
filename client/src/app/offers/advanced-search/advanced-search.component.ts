@@ -54,7 +54,7 @@ export class AdvancedSearchComponent implements OnInit {
     console.log(query);
     
     
-    // this.router.navigate(['/offers/list'] , {queryParams : query});
+    this.router.navigate(['/offers/list'] , {queryParams : query});
   }
 
   private attachFields(field,value,query) { 

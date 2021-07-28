@@ -20,10 +20,38 @@ export class OffersService {
     return this.http.get<IOffer>('/api/offers/catalogue' ,  {withCredentials : true});
   }
 
-  nextOffers(lastOffersID,brand,model) : Observable<any> { 
+  nextOffers(
+    lastOffersID,
+    brand,
+    model,
+    yearFrom,
+    yearTo,
+    color,
+    power,
+    mileage,
+    populatedState,
+    price,
+    doors,
+    condition,
+    transmission,
+    engineType,
+    category,
+    ) : Observable<any> { 
     let query = '?lastOffersID=' + lastOffersID;
     if(brand) query += `&brand=${brand}`;
     if(model) query += `&model=${model}`;
+    if(yearFrom) query += `&yearFrom=${yearFrom}`;
+    if(yearTo) query += `&yearTo=${yearTo}`;
+    if(color) query += `&color=${color}`;
+    if(power) query += `&power=${power}`;
+    if(mileage) query += `&mileage=${mileage}`;
+    if(populatedState) query += `&populatedState=${populatedState}`;
+    if(price) query += `&price=${price}`;
+    if(doors) query += `&doors=${doors}`;
+    if(condition) query += `&condition=${condition}`;
+    if(transmission) query += `&transmission=${transmission}`;
+    if(engineType) query += `&engineType=${engineType}`;
+    if(category) query += `&category=${category}`;
     return this.http.get<any>(`/api/offers/next` + query , {withCredentials : true});
   }
 

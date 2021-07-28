@@ -59,14 +59,24 @@ async function getDataById(id) {
     return await offerModel.findById(id);
 }
 
-async function getNext(offset , brand , model) {
+async function getNext(offset , data) {
     const query = {};
-    if (brand) {
-        query.brand = brand;
-    }
-    if (model) {
-        query.model = model;
-    }
+        data.map(x => {
+            Object.assign(query , {[x[0]] : x[1]})
+    });
+
+    console.log(query);
+
+
+    // if(query.yearFrom && query.yearTo) { 
+    //     return await offerModel.find({ year : {$gte : query.yearFrom , $lte : query.yearTo }}).skip(offset).limit(12);
+    // }
+
+
+    // if(query.yearFrom) { 
+    //     return await offerModel.find( { year : {$gte : query.yearFrom}}).skip(offset).limit(12);
+    // }
+
     return await offerModel.find(query).skip(offset).limit(12);
 }
 
@@ -90,9 +100,7 @@ async function getCurrentUserOffers(userID) {
     return offers;
 }
 
-async function advancedSearch() { 
-    
-}
+
 
 
 
@@ -105,5 +113,4 @@ module.exports = {
     deleteOffer,
     getLastOffers,
     getCurrentUserOffers,
-    advancedSearch
 }

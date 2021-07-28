@@ -43,11 +43,12 @@ router.get('/catalogue/:id' , async (req,res) => {
 
 router.get('/next' , async (req,res) => { 
     try {
-        const offers = await offerService.getNext(Number(req.query.lastOffersID) , req.query.brand , req.query.model );
+        const queries = Object.entries(req.query).slice(1);
+        // console.log(req.query);
+        const offers = await offerService.getNext(Number(req.query.lastOffersID) ,  queries);
         res.status(200).json(offers);
     } catch (err) {
         res.status(400).json(err);
-        
     }
 });
 

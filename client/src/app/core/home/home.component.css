@@ -176,9 +176,6 @@
   top: -316px;
 }
 
-.offers { 
-  float: right;
-}
 
 @media(max-width: 680px) {
   .loggedInContent h1 { 
