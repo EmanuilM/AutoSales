@@ -19,6 +19,7 @@ async function getCurrentUserData(id) {
         username : userDetails.username,
         phoneNumber : userDetails.phoneNumber,
         offers : userDetails.offers,
+        id : userDetails._id
     }
 }
 

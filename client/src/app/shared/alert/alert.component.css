@@ -1,8 +1,15 @@
-.alert-warning {
-    color: white;
-    background-color: #fd2222;
-    border-color: white;
-    position: absolute;
-    right: 3%;
-    margin-top: 10px;
-}
+/* .alert-box {
+	padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;  
+} */
+
+
+
+    :host >>> .alert-custom {
+        color: #ffffff;
+        background-color: #ff0000;
+        width: 236px;
+        float: right;
+    }

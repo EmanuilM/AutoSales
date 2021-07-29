@@ -38,17 +38,20 @@ export class ListComponent implements OnInit {
         x.power,
         x.mileage,
         x.populatedState,
-        x.price,
+        x.priceFrom,
+        x.priceTo,
         x.doors,
         x.condition,
         x.transmission,
         x.engineType,
         x.category,
-      );
+      )
     })).subscribe(x => {
       this.catalogue = x;
       this.isLoading = false;
-    })
+    },
+    error => console.log(error)
+    )
 
     console.log(this.query);
 
@@ -75,7 +78,8 @@ export class ListComponent implements OnInit {
         this.query.power,
         this.query.mileage,
         this.query.populatedState,
-        this.query.price,
+        this.query.priceFrom,
+        this.query.priceTo,
         this.query.doors,
         this.query.condition,
         this.query.transmission,

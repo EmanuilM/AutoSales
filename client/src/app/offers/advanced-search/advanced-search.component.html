@@ -10,8 +10,6 @@
                         <select id="sub" name="brand"  formControlName="brand" (change)="getModels(advancedSearchForm.value.brand)"> 
                             <option value="" selected hidden>Any</option>
                             <option  *ngFor="let brand of brands">{{brand}}</option>
-                            
-                            
                         
                          </select> 
                     </div>
@@ -30,12 +28,12 @@
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Year From</label>
-                        <input formControlName="yearFrom" type="number" class="form-control" name="color" placeholder="Any" required>
+                        <input formControlName="yearFrom" type="number" class="form-control" name="yearFrom" placeholder="Any" required>
 
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Year To</label>
-                        <input formControlName="yearTo" type="number" class="form-control" name="color" placeholder="Any" required>
+                        <input formControlName="yearTo" type="number" class="form-control" name="yearTo" placeholder="Any" required>
                     </div>
                 </div>
                 <div class="row">
@@ -52,14 +50,15 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
-                        <label>Populated place</label>
-                        <input formControlName="populatedState" type="text" class="form-control" name="populatedState" placeholder="Any" required>
+                        <label>Price from</label>
+                        <input formControlName="priceFrom" type="number" class="form-control" name="priceFrom" placeholder="Any" required>
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
-                        <label>Price</label>
-                        <input formControlName="price" type="number" class="form-control" name="price" placeholder="Any" required>
+                        <label>Price to</label>
+                        <input formControlName="priceTo" type="number" class="form-control" name="priceTo" placeholder="Any" required>
                     </div>
                 </div>
+              
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Doors</label>
@@ -67,9 +66,15 @@
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Color</label>
-                        <input formControlName="color" type="text" class="form-control" name="description" placeholder="Any" required>
+                        <input formControlName="color" type="text" class="form-control" name="color" placeholder="Any" required>
                     </div>
                 </div>
+                <div class="rom">
+                    <div class="col-md-6 mt-md-0 mt-3">
+                      <label>Populated place</label>
+                      <input formControlName="populatedState" type="text" class="form-control" name="populatedState" placeholder="Any" required>
+                  </div> 
+              </div>
                 <div class=" my-md-2 my-3">
                     <label>Condition</label>
                     <select id="sub" name="condition" formControlName="condition" required>

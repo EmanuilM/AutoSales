@@ -30,7 +30,8 @@ export class OffersService {
     power,
     mileage,
     populatedState,
-    price,
+    priceFrom,
+    priceTo,
     doors,
     condition,
     transmission,
@@ -46,7 +47,8 @@ export class OffersService {
     if(power) query += `&power=${power}`;
     if(mileage) query += `&mileage=${mileage}`;
     if(populatedState) query += `&populatedState=${populatedState}`;
-    if(price) query += `&price=${price}`;
+    if(priceFrom) query += `&priceFrom=${priceFrom}`;
+    if(priceTo) query += `&priceTo=${priceTo}`;
     if(doors) query += `&doors=${doors}`;
     if(condition) query += `&condition=${condition}`;
     if(transmission) query += `&transmission=${transmission}`;
