@@ -83,8 +83,8 @@
                      </div>
 
                       <div class="action-buttons">
-                        <a routerLink="/offers/edit/{{data._id}}" type="button" class="btn btn-info"  *ngIf="user?._id == data.creator">Edit</a>
-                        <a type="button" class="btn btn-danger" *ngIf="user?._id == data.creator" (click)="del(data._id)">Delete</a>
+                        <a routerLink="/offers/edit/{{data._id}}" type="button" class="btn btn-info"  *ngIf="user?.id == data.creator">Edit</a>
+                        <a type="button" class="btn btn-danger" *ngIf="user?.id == data.creator" (click)="del(data._id)">Delete</a>
                      </div> 
 
 

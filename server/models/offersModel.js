@@ -63,7 +63,7 @@ const offerSchema = new mongoose.Schema({
     creator: {
         type: mongoose.Types.ObjectId,
         ref: 'user'
-    }
+    },
 })
 
 

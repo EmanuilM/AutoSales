@@ -37,9 +37,10 @@
     padding-top: 30px;
 }
 
-.last-offers-loggedIn h2 { 
+.last-offers-loggedIn  { 
   text-align: center;
-  margin-top: -79px;
+  padding-top: -53px;
+  margin-top: -70px;
 }
 
 

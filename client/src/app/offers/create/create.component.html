@@ -186,11 +186,11 @@
                     <div class="error-message" *ngIf="submitted && f.category.errors?.required">Category type field is
                         required!</div>
                 </div>
-                <!-- <input type="file" multiple formControlName="image" (change)="selectImages($event)"> -->
-                <div class="button-wrapper">
+                <input type="file" multiple formControlName="image" (change)="selectImages($event)">
+                <!-- <div class="button-wrapper">
                     <span class="label">Upload File</span>
-                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" multiple>
-                </div>
+                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" multiple (change)="selectImages($event)">
+                </div> -->
                 <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!
                 </div>
             </div>

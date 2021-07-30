@@ -67,14 +67,20 @@ async function getNext(offset, data) {
 
     console.log(query);
 
-
-    // if(query.yearFrom && query.yearTo) { 
-    //     return await offerModel.find({ year : {$gte : query.yearFrom , $lte : query.yearTo }}).skip(offset).limit(12);
-    // }
+    if (query.yearFrom && query.yearTo) {
+        const yearFrom = query["yearFrom"];
+        const yearTo = query["yearTo"];
+        delete query["yearFrom"];
+        delete query["yearTo"];
+        Object.assign(query , {year : {$gte : Number(yearFrom) , $lte : Number(yearTo)}});
+        return await offerModel.find(query).skip(offset).limit(12);
+    }
 
     if (query.yearFrom) {
-        return  offerModel.find({query,year : {$gte : query.yearFrom  }}, function(err,arr) {console.log(err,arr)}).skip(offset).limit(12);
-        // return await offerModel.find(query , {year : {$gte : query.yearFrom}}).skip(offset).limit(12);
+        const yearFrom = query["yearFrom"];
+        delete query["yearFrom"];
+        Object.assign(query , {year : {$gte : Number(yearFrom)}});
+        return await offerModel.find(query).skip(offset).limit(12);
     }
 
     return await offerModel.find(query).skip(offset).limit(12);
