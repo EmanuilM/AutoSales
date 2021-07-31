@@ -1,5 +1,6 @@
 const userModel = require('../models/user');
 const offerModel = require('../models/offersModel');
+const bcrypt = require('bcrypt');
 
 async function getCreatorData(id) { 
    const offer = await offerModel.findById(id);
@@ -23,7 +24,30 @@ async function getCurrentUserData(id) {
     }
 }
 
+ 
+async function editUserProfile(data, id) { 
+   const user = await userModel.findById(id);
+   if(!data.username || !data.email || !data.phoneNumber ) { 
+    throw({message : "All filds are required!"});
+
+   }
+   if(!data.confirmPassword) { 
+    throw({message : "You must to enter your password!"});
+   }
+   const isValidPassword = await bcrypt.compare(data.confirmPassword , user.password)
+   if(!isValidPassword) { 
+       throw({message : "Wrong password! Please try again"});
+   }
+  return {
+       username : data.username.trim(),
+       email : data.email.trim(),
+       phoneNumber : data.phoneNumber.trim(),
+   }
+ 
+}
+
 module.exports = { 
     getCreatorData,
     getCurrentUserData,
+    editUserProfile,
 }

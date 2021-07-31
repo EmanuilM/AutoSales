@@ -26,14 +26,21 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mt-md-0 mt-3">
+                    <div class="sel">
                         <label>Year From</label>
-                        <input formControlName="yearFrom" type="number" class="form-control" name="yearFrom" placeholder="Any" required>
-
+                        <select id="sub" name="model" formControlName="yearFrom" required>
+                            <option selected hidden>Any</option>
+                            <option *ngFor="let data of years">{{data}}</option>
+                           
+                            
+                        </select>
                     </div>
-                    <div class="col-md-6 mt-md-0 mt-3">
+                    <div class="sel">
                         <label>Year To</label>
-                        <input formControlName="yearTo" type="number" class="form-control" name="yearTo" placeholder="Any" required>
+                        <select id="sub" name="model" formControlName="yearTo" required>
+                            <option selected hidden>Any</option>
+                            <option *ngFor="let data of years">{{data}}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="row">

@@ -22,7 +22,7 @@ async function createOffer(data, userID) {
         imageIds,
         imageURLs
     } = data;
-    const checkAllFields = Object.values(data).every(y => y != '');
+    const checkAllFields = Object.values(data).every(y => y !== '');
     if (!checkAllFields) {
         throw ({ message: "All fields are required!" });
     }
@@ -73,14 +73,26 @@ async function getNext(offset, data) {
         delete query["yearFrom"];
         delete query["yearTo"];
         Object.assign(query , {year : {$gte : Number(yearFrom) , $lte : Number(yearTo)}});
-        return await offerModel.find(query).skip(offset).limit(12);
     }
 
     if (query.yearFrom) {
         const yearFrom = query["yearFrom"];
         delete query["yearFrom"];
         Object.assign(query , {year : {$gte : Number(yearFrom)}});
-        return await offerModel.find(query).skip(offset).limit(12);
+    }
+
+    if (query.priceFrom && query.priceTo) {
+        const priceFrom = query["priceFrom"];
+        const priceTo = query["priceTo"];
+        delete query["priceFrom"];
+        delete query["priceTo"];
+        Object.assign(query , {year : {$gte : Number(priceFrom) , $lte : Number(priceTo)}});
+    }
+
+    if (query.priceFrom) {
+        const priceFrom = query["priceFrom"];
+        delete query["priceFrom"];
+        Object.assign(query , {year : {$gte : Number(priceFrom)}});
     }
 
     return await offerModel.find(query).skip(offset).limit(12);

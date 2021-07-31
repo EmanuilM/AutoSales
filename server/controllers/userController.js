@@ -1,6 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const userService = require('../services/userService');
+const userModel = require('../models/user');
 
 
 router.get('/creatorData', async (req, res) => {
@@ -20,6 +21,26 @@ router.get('/currentUser' , async (req,res) => {
            return res.status(200).json(currentUser);
         }
         res.json({});
+})
+
+router.post('/edit' , async (req,res) => { 
+
+    try { 
+        const editedUserData = await userService.editUserProfile(req.body.data , req.body.id);
+        Promise.all([
+           await userModel.updateOne({_id: req.user._id} , editedUserData)
+        ]).then(result => {
+            console.log(result)
+           res.status(200).json({});
+        }).catch((error) => { 
+           res.status(400).json(error);
+        })
+      
+    }catch(err) {
+        res.status(400).json(err);  
+    }
+    
+    
 })
 
 module.exports = router;

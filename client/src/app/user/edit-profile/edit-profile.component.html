@@ -1,3 +1,4 @@
+<app-alert *ngIf="error" [message]="error"></app-alert>
 <div class="layout">
     <div class="layout-content">
         <div class="wrapper">
@@ -7,27 +8,32 @@
                         alt="">
                 </div>
             </div>
+            <form [formGroup]="editProfileFrom">
             <div class="content">
                 <div class="container-wrapper">
                     <div class="container">
-                        <label for="" class="title">Username</label>
-                        <input type="text" placeholder="Edit username">
+                        <label for="" class="title" >Username</label>
+                        <input type="text" placeholder="Edit username" formControlName="username">
                     </div>
                     <div class="container">
-                        <label for="" class="title">Email</label>
-                        <input type="text" placeholder="Edit email">
+                        <label for="" class="title" >Email</label>
+                        <input type="text" placeholder="Edit email" formControlName="email">
 
                     </div>
-                    <div class="container">
+                    <div class="container">     
                         <label for="" class="title">Phone Number</label>
-                        <input type="text" placeholder="Edit phone number">
-
+                        <input type="number" placeholder="Edit phone number" formControlName="phoneNumber">
+                    </div>
+                    <div class="container">
+                        <label for="" class="title">Enter your password</label>
+                        <input type="password" placeholder="Enter your password" formControlName="confirmPassword">
                     </div>
                     <div class="edit-button">
-                        <a type="button" class="btn btn-info">Edit Profile</a>
+                        <a type="button" class="btn btn-info" (click)="editProfile(editProfileFrom.value)">Save changes</a>
                     </div>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 

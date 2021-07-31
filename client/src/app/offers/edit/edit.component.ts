@@ -6,6 +6,7 @@ import { first } from 'rxjs/operators';
 import { OffersService } from 'src/app/shared/services/offers.service';
 import { IOffer } from 'src/app/shared/interfaces/offer';
 import * as carsData from '../../shared/carsData.json';
+import * as yearsData from '../../shared/yearsData.json';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class EditComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
+  years = [];
   isLoading : boolean = false;
   error : string;
 
@@ -54,6 +56,7 @@ export class EditComponent implements OnInit {
   ngOnInit(): void {
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
+    this.years = yearsData['default']['years'];
 
     this.router.params.subscribe(x => this.offerID = x['id']);
     

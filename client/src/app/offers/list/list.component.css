@@ -27,27 +27,27 @@ body {
 }
 
 span.text-muted {
-    font-size: 12px
+    font-size: 12px;
 }
 
 small.text-muted {
-    font-size: 14px
+    font-size: 14px;
 }
 
 small.text-muted.mt-1 {
-    font-size: 14px
+    font-size: 14px;
 }
 
 h5.mb-0 {
-    font-size: 1rem
+    font-size: 15px;
 }
 
 small.ghj {
-    font-size: 14px
+    font-size: 14px;
 }
 
 .mid {
-    background: #ECEDF1
+    background: #ECEDF1;
 }
 
 h6 { 
@@ -61,21 +61,21 @@ h6.ml-1 {
 small.key {
     text-decoration: underline;
     font-size: 9px;
-    cursor: pointer
+    cursor: pointer;
 }
 
 .btn-danger {
-    color: #FFCBD2
+    color: #FFCBD2;
 }
 
 .btn-danger:focus {
-    box-shadow: none
+    box-shadow: none;
 }
 
 small.justify-content-center {
     font-size: 9px;
     cursor: pointer;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 .col-sm-4 {

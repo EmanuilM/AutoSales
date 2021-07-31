@@ -39,11 +39,15 @@ export class UserService {
   }
 
   getCreatorData() : Observable<any>{
-    return this.http.get<any>('/api/user/creatorData');
+    return this.http.get<any>('/api/user/creatorData' , {withCredentials : true});
   }
 
   getCurrentUser() : Observable<IUser> { 
-    return this.http.get<IUser>('/api/user/currentUser');
+    return this.http.get<IUser>('/api/user/currentUser' , {withCredentials : true});
+  }
+
+  editUserProfile(data , id) : Observable<any> { 
+    return this.http.post<any>('/api/user/edit',  {data , id} , {withCredentials : true});
   }
 
 }

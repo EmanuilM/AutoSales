@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
-import { EditComponent } from './edit/edit.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -17,7 +17,7 @@ import { EditComponent } from './edit/edit.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    EditComponent
+    EditProfileComponent
   ],
   imports: [
     CommonModule,

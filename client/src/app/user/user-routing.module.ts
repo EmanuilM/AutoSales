@@ -1,5 +1,5 @@
 import {RouterModule , Routes} from '@angular/router';
-import { EditComponent } from './edit/edit.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
@@ -27,7 +27,7 @@ const routes : Routes = [
             },
             {
                 path: 'edit/profile/:id',
-                component : EditComponent,
+                component : EditProfileComponent,
             },
            
         ]

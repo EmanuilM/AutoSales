@@ -72,14 +72,22 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-6 mt-md-0 mt-3">
+                    <div class="sel">
+                        <label>Year</label>
+                        <select id="sub" name="model" formControlName="year" required>
+                            <option selected hidden>Any</option>
+                            <option *ngFor="let data of years">{{data}}</option>
+                        </select>
+                        <div class="error-message" *ngIf="submitted && f.year.errors?.required">Year field is required!</div>
+                    </div>
+                    <!-- <div class="col-md-6 mt-md-0 mt-3">
                         <label>Year</label>
                         <input formControlName="year" type="number" class="form-control" name="color"
-                            placeholder="Enter Number" required>
                         <div class="error-message" *ngIf="submitted && f.year.errors?.required">Year field is required!
+                            placeholder="Enter Number" required>
                         </div>
 
-                    </div>
+                    </div> -->
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Color</label>
                         <input formControlName="color" type="text" class="form-control" name="color" required>

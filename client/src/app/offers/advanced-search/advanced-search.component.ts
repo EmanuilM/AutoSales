@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as carsData from '../../shared/carsData.json';
+import * as yearsData from '../../shared/yearsData.json';
 
 @Component({
   selector: 'app-advanced-search',
@@ -13,6 +14,7 @@ export class AdvancedSearchComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
+  years = [];
 
   constructor(private fb : FormBuilder , private router : Router) {
     this.advancedSearchForm = fb.group({
@@ -37,6 +39,7 @@ export class AdvancedSearchComponent implements OnInit {
   ngOnInit(): void {
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
+    this.years = yearsData['default']['years']
   }
 
   getModels(brand) { 

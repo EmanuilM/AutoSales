@@ -44,7 +44,6 @@ router.get('/catalogue/:id' , async (req,res) => {
 router.get('/next' , async (req,res) => { 
     try {
         const queries = Object.entries(req.query).slice(1);
-        // console.log(req.query);
         const offers = await offerService.getNext(Number(req.query.lastOffersID) ,  queries);
         res.status(200).json(offers);
     } catch (err) {
@@ -88,16 +87,6 @@ router.get('/userOffers' , async (req,res) => {
         res.status(400).json(err);
     }
 });
-
-router.get('/search' , async (req,res) => { 
-    try {
-        console.log(req.query);
-        const result = await offerService.advancedSearch();
-    } catch (err) {
-        res.status(400).json(err);
-    }
-})
-
 
 
 

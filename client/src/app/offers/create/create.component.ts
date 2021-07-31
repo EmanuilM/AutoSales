@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { OffersService } from '../../shared/services/offers.service';
 import { UploadService } from '../../shared/services/upload.service';
 import * as carsData from '../../shared/carsData.json';
+import * as yearsData from '../../shared/yearsData.json';
 
 
 
@@ -24,6 +25,7 @@ export class CreateComponent implements OnInit {
   brands = [];
   models = [];
   currentCarsData = {};
+  years = [];
   error : string;
   isLoading : boolean = false;
 
@@ -57,6 +59,7 @@ export class CreateComponent implements OnInit {
   ngOnInit(): void {
     this.currentCarsData = carsData['default'];
     this.brands = Object.keys(this.currentCarsData);
+    this.years = yearsData['default']['years'];
   }
   
   
