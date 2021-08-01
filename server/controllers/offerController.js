@@ -41,7 +41,7 @@ router.get('/catalogue/:id' , async (req,res) => {
     }
 })
 
-router.get('/next' , async (req,res) => { 
+router.get('/next' ,  async (req,res) => { 
     try {
         const queries = Object.entries(req.query).slice(1);
         const offers = await offerService.getNext(Number(req.query.lastOffersID) ,  queries);
@@ -51,7 +51,7 @@ router.get('/next' , async (req,res) => {
     }
 });
 
-router.post('/edit/:id' , async (req,res) => { 
+router.post('/edit/:id' ,  isAuth , async (req,res) => { 
     try {
         const updatedOffer = await offerService.edit(req.params.id , req.body);
         res.status(200).json(updatedOffer);
@@ -60,7 +60,7 @@ router.post('/edit/:id' , async (req,res) => {
     }
 });
 
-router.post('/delete/:id' , async (req,res) => { 
+router.post('/delete/:id' ,  isAuth ,  async (req,res) => { 
     try {
         const result = await offerService.deleteOffer(req.params.id , req.body.imageIds);
         res.status(200).json(result);
@@ -79,7 +79,7 @@ router.get('/lastOffers' , async (req,res) => {
     }
 });
 
-router.get('/userOffers' , async (req,res) => { 
+router.get('/userOffers' ,  isAuth , async (req,res) => { 
     try {
         const currentUserOffers = await offerService.getCurrentUserOffers(req.user._id);
         res.status(200).json(currentUserOffers);

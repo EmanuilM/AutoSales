@@ -22,38 +22,14 @@ export class OffersService {
 
   nextOffers(
     lastOffersID,
-    brand,
-    model,
-    yearFrom,
-    yearTo,
-    color,
-    power,
-    mileage,
-    populatedState,
-    priceFrom,
-    priceTo,
-    doors,
-    condition,
-    transmission,
-    engineType,
-    category,
+    queryParams,
     ) : Observable<any> { 
-    let query = '?lastOffersID=' + lastOffersID;
-    if(brand) query += `&brand=${brand}`;
-    if(model) query += `&model=${model}`;
-    if(yearFrom) query += `&yearFrom=${yearFrom}`;
-    if(yearTo) query += `&yearTo=${yearTo}`;
-    if(color) query += `&color=${color}`;
-    if(power) query += `&power=${power}`;
-    if(mileage) query += `&mileage=${mileage}`;
-    if(populatedState) query += `&populatedState=${populatedState}`;
-    if(priceFrom) query += `&priceFrom=${priceFrom}`;
-    if(priceTo) query += `&priceTo=${priceTo}`;
-    if(doors) query += `&doors=${doors}`;
-    if(condition) query += `&condition=${condition}`;
-    if(transmission) query += `&transmission=${transmission}`;
-    if(engineType) query += `&engineType=${engineType}`;
-    if(category) query += `&category=${category}`;
+   const query =  Object.entries(queryParams).reduce((a,[name , value]) => {
+      a += `&${name}=${value}`
+      return a;
+    },'?lastOffersID=' + lastOffersID);
+    console.log(query);
+    
     return this.http.get<any>(`/api/offers/next` + query , {withCredentials : true});
   }
 
@@ -76,6 +52,9 @@ export class OffersService {
  getUserOffers() : Observable<IOffer> { 
    return this.http.get<IOffer>('/api/offers/userOffers'  ,  {withCredentials : true});
  }
+
+
+
 
   
 }

@@ -81,18 +81,30 @@ async function getNext(offset, data) {
         Object.assign(query , {year : {$gte : Number(yearFrom)}});
     }
 
+    if (query.yearTo) {
+        const yearTo = query["yearTo"];
+        delete query["yearTo"];
+        Object.assign(query , {year : {$lte : Number(yearTo)}});
+    }
+
     if (query.priceFrom && query.priceTo) {
         const priceFrom = query["priceFrom"];
         const priceTo = query["priceTo"];
         delete query["priceFrom"];
         delete query["priceTo"];
-        Object.assign(query , {year : {$gte : Number(priceFrom) , $lte : Number(priceTo)}});
+        Object.assign(query , {price : {$gte : Number(priceFrom) , $lte : Number(priceTo)}});
     }
 
     if (query.priceFrom) {
         const priceFrom = query["priceFrom"];
         delete query["priceFrom"];
-        Object.assign(query , {year : {$gte : Number(priceFrom)}});
+        Object.assign(query , {price : {$gte : Number(priceFrom)}});
+    }
+
+    if (query.priceTo) {
+        const priceTo = query["priceTo"];
+        delete query["priceTo"];
+        Object.assign(query , {price : {$lte : Number(priceTo)}});
     }
 
     return await offerModel.find(query).skip(offset).limit(12);

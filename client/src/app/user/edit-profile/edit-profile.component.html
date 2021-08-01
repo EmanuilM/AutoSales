@@ -8,33 +8,31 @@
                         alt="">
                 </div>
             </div>
-            <form [formGroup]="editProfileFrom">
-            <div class="content">
-                <div class="container-wrapper">
-                    <div class="container">
-                        <label for="" class="title" >Username</label>
-                        <input type="text" placeholder="Edit username" formControlName="username">
-                    </div>
-                    <div class="container">
-                        <label for="" class="title" >Email</label>
-                        <input type="text" placeholder="Edit email" formControlName="email">
+            <form [formGroup]="editProfileFrom" (ngSubmit)="editProfile(editProfileFrom.value)">
+                <div class="content">
+                    <div class="container-wrapper">
+                        <div class="container">
+                            <label for="" class="title">Username</label>
+                            <input type="text" placeholder="Edit username" formControlName="username">
+                        </div>
+                        <div class="container">
+                            <label for="" class="title">Email</label>
+                            <input type="text" placeholder="Edit email" formControlName="email">
 
-                    </div>
-                    <div class="container">     
-                        <label for="" class="title">Phone Number</label>
-                        <input type="number" placeholder="Edit phone number" formControlName="phoneNumber">
-                    </div>
-                    <div class="container">
-                        <label for="" class="title">Enter your password</label>
-                        <input type="password" placeholder="Enter your password" formControlName="confirmPassword">
-                    </div>
-                    <div class="edit-button">
-                        <a type="button" class="btn btn-info" (click)="editProfile(editProfileFrom.value)">Save changes</a>
+                        </div>
+                        <div class="container">
+                            <label for="" class="title">Phone Number</label>
+                            <input type="number" placeholder="Edit phone number" formControlName="phoneNumber">
+                        </div>
+                        <div class="container">
+                            <label for="" class="title">Enter your password</label>
+                            <input type="password" placeholder="Enter your password" formControlName="confirmPassword">
+                        </div>
+                        <div class="edit-button">
+                            <button class="btn btn-info">Save changes</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
         </div>
     </div>
-
-    

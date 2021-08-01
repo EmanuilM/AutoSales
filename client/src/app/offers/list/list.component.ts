@@ -29,23 +29,7 @@ export class ListComponent implements OnInit {
       this.query = x;
       
 
-      return this.offerService.nextOffers(0, 
-        x.brand,
-        x.model,
-        x.yearFrom,
-        x.yearTo,
-        x.color,
-        x.power,
-        x.mileage,
-        x.populatedState,
-        x.priceFrom,
-        x.priceTo,
-        x.doors,
-        x.condition,
-        x.transmission,
-        x.engineType,
-        x.category,
-      )
+      return this.offerService.nextOffers(0, x)
     })).subscribe(x => {
       this.catalogue = x;
       this.isLoading = false;
@@ -53,7 +37,6 @@ export class ListComponent implements OnInit {
     error => console.log(error)
     )
 
-    console.log(this.query);
     
 
   }
@@ -69,28 +52,14 @@ export class ListComponent implements OnInit {
 
   loadNextOffers() {
     const lastOfferIndeex = this.catalogue.length;
-    this.offerService.nextOffers(
-        lastOfferIndeex,
-        this.query.brand,
-        this.query.model,
-        this.query.yearFrom,
-        this.query.yearTo,
-        this.query.color,
-        this.query.power,
-        this.query.mileage,
-        this.query.populatedState,
-        this.query.priceFrom,
-        this.query.priceTo,
-        this.query.doors,
-        this.query.condition,
-        this.query.transmission,
-        this.query.engineType,
-        this.query.category,
-        ).subscribe(res => {
+    this.offerService.nextOffers(lastOfferIndeex,this.query).subscribe(res => {
       this.catalogue = this.catalogue.concat(res);
       this.isOffersLoading = false;
       console.log(res);
     })
   }
+
+
+
 
 }

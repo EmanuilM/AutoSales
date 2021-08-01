@@ -38,10 +38,11 @@ async function editUserProfile(data, id) {
    if(!isValidPassword) { 
        throw({message : "Wrong password! Please try again"});
    }
+
   return {
        username : data.username.trim(),
        email : data.email.trim(),
-       phoneNumber : data.phoneNumber.trim(),
+       phoneNumber : data.phoneNumber.toString().trim(),
    }
  
 }
