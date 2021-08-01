@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedModule } from '../shared/shared.module';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
 
 
 
@@ -27,5 +28,6 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
     ReactiveFormsModule,
     SharedModule
   ],
+  providers : [AuthGuard]
 })
 export class UserModule { }

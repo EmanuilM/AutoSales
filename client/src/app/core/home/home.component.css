@@ -54,6 +54,7 @@
     background-color: #f1f1f1;
     max-height: 311px;
     height: 600px;
+    right: -7%;
   }
 
   .mat-card-image { 
@@ -89,6 +90,7 @@
       background-color: #f1f1f1;
       max-height: 311px;
       height: 600px;
+      right: 1%;
     }
 
   

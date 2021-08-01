@@ -16,6 +16,7 @@ export interface IOffer{
     transmission : string,
     engineType : string,
     category : string,
+    creator : string,
     __v : number,
 
 

@@ -1,4 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../shared/guards/auth.guard';
+import { OwnerGuard } from '../shared/guards/owner.guard';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { CreateComponent } from './create/create.component'
 import { DetailsComponent } from './details/details.component';
@@ -12,6 +14,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateComponent,
+        canActivate:[AuthGuard],
+        data : {
+          isLogged : true,
+        }
       },
       {
         path: 'list',
@@ -20,6 +26,10 @@ const routes: Routes = [
       {
         path: 'edit/:id',
         component: EditComponent,
+        canActivate:[OwnerGuard],
+        data : {
+          isLogged : true,
+        }
       },
       {
         path: 'details/:id',
@@ -28,6 +38,10 @@ const routes: Routes = [
       {
         path: 'advanced-search',
         component: AdvancedSearchComponent,
+        canActivate:[AuthGuard],
+        data : {
+          isLogged : true,
+        }
       },
      
 

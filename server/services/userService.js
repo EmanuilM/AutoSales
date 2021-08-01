@@ -9,7 +9,7 @@ async function getCreatorData(id) {
        email : creatorDetails.email,
        phoneNumber : creatorDetails.phoneNumber,
        username : creatorDetails.username,
-       id : creatorDetails._id,
+       _id : creatorDetails._id,
    }
 }
 
@@ -20,7 +20,7 @@ async function getCurrentUserData(id) {
         username : userDetails.username,
         phoneNumber : userDetails.phoneNumber,
         offers : userDetails.offers,
-        id : userDetails._id
+        _id : userDetails._id
     }
 }
 

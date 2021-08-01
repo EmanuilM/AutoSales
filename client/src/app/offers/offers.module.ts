@@ -14,6 +14,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CoreModule } from '../core/core.module';
 import { RouterModule } from '@angular/router';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
+import { AuthGuard } from '../shared/guards/auth.guard';
+import { OwnerGuard } from '../shared/guards/owner.guard';
 
 
 
@@ -36,5 +38,6 @@ import { AdvancedSearchComponent } from './advanced-search/advanced-search.compo
     InfiniteScrollModule,
     RouterModule
   ],
+  providers : [AuthGuard , OwnerGuard]
 })
 export class OffersModule { }

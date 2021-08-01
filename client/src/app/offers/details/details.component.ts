@@ -41,6 +41,7 @@ export class DetailsComponent implements OnInit {
       this.user = user;
       this.creator = creator;
       this.isLoading = false;
+      
     })
 
     
