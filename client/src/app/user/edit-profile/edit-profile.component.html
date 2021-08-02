@@ -16,30 +16,31 @@
                             <label for="" class="title">Username</label>
                             <input formControlName="username" type="text" placeholder="Edit username">
                         </div>
-                        <div class="error-message" *ngIf="f.username.errors?.required">Username is required!</div>
-                        <div class="error-message" *ngIf="f.username.errors?.minlength">Username must be at least 4 characters long!</div>
+                        <div class="error-message" *ngIf="f.username.touched && f.username.errors?.required">Username is required!</div>
+                        <div class="error-message" *ngIf="f.username.touched && f.username.errors?.minlength">Username must be at least 4 characters long!</div>
 
                         
                         <div class="container">
                             <label for="" class="title">Email</label>
                             <input formControlName="email" type="text" placeholder="Edit email">
                         </div>
-                        <div class="error-message" *ngIf="f.email.errors?.required">Email is required!</div>
-                        <div class="error-message" *ngIf="f.email.errors?.minlength">Email must be at least 4 characters long!</div>
-                        <div class="error-message" *ngIf="f.email.errors?.email">Invalid email!</div>
+                        <div class="error-message" *ngIf="f.email.touched && f.email.errors?.required">Email is required!</div>
+                        <div class="error-message" *ngIf="f.email.touched && f.email.errors?.minlength">Email must be at least 4 characters long!</div>
+                        <div class="error-message" *ngIf="f.email.touched && f.email.errors?.email">Invalid email!</div>
 
                         <div class="container">
                             <label for="" class="title">Phone Number</label>
                             <input formControlName="phoneNumber" type="number" placeholder="Edit phone number">
                         </div>
-                        <div class="error-message" *ngIf="f.phoneNumber.errors?.required">Phone number is required!</div>
-                        <div class="error-message" *ngIf="f.phoneNumber.errors?.minlength">Phone number must be 10 digits long!</div>
+                        <div class="error-message" *ngIf="f.phoneNumber.touched && f.phoneNumber.errors?.required">Phone number is required!</div>
+                        <div class="error-message" *ngIf="f.phoneNumber.touched && f.phoneNumber.errors?.minlength">Phone number must be 10 digits long!</div>
                         <div class="container">
                             <label for="" class="title">Enter your password</label>
                             <input formControlName="confirmPassword" type="password" placeholder="Enter your password" >
                         </div>
-                        <div class="error-message" *ngIf="f.confirmPassword.errors?.required">Password is required!</div>
+                        <div class="error-message" *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.required">Password is required!</div>
                         <div class="edit-button">
+                            <button class="btn btn-info" routerLink="/offers/list">Back to offers</button>
                             <button class="btn btn-info" [disabled]="editProfileFrom.invalid">Save changes</button>
                         </div>
                     </div>

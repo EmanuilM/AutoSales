@@ -33,7 +33,6 @@ export class EditProfileComponent implements OnInit {
     this.userService.getCurrentUser()
     .pipe(first())
     .subscribe(x => {
-      this.editProfileFrom.patchValue(x);
       this.currentUser = x;
     });
   }
