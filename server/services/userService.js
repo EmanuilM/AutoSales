@@ -38,6 +38,7 @@ async function editUserProfile(data, id) {
     const isValidPassword = await bcrypt.compare(data.confirmPassword, user.password);
     const isUserExist = await userModel.findOne({username : data.username.toLowerCase().trim()});
     const isEmailExist = await userModel.findOne({email : data.email.toLowerCase().trim()});
+    const isPhoneExist = await userModel.findOne({phoneNumber : data.phoneNumber.toString().trim()});
     console.log(isUserExist)
     // console.log(isEmailExist)
     if (!isValidPassword) {
@@ -54,7 +55,10 @@ async function editUserProfile(data, id) {
         throw ({ message: 'This username already exist!' });
     }
     if (isEmailExist) {
-        throw ({ message: 'Phis email already exist!' });
+        throw ({ message: 'This email already exist!' });
+    }
+    if (isPhoneExist) {
+        throw ({ message: 'This phone number already exist!' });
     }
 
     return {

@@ -65,6 +65,12 @@ h1 {
     position: relative;
 }
 
+h2 { 
+    text-align: center;
+    position: relative;
+    top: 39px;
+}
+
 .edit-button {
     display: flex;
     flex-direction: row;
