@@ -34,6 +34,18 @@ async function createOffer(data, userID) {
     if(description.length > 3000) { 
         throw ({ message: "Description can't be over 3000 symbols" });
     }
+    if(populatedState.length > 17) { 
+        throw ({ message: "Populated place cannot be over 17 characters" });
+    }
+    if(doors > 4) { 
+        throw ({ message: "Doors field cannot be over 4 " });
+    }
+    if(mileage.toString().legnth > 6) { 
+        throw ({ message: "Mileage cannot be 7 digit number" });
+    }
+    if(color.length > 10) { 
+        throw ({ message: "Color field cannot be over 10 characters" });
+    }
 
 
     const offer = new offerModel({

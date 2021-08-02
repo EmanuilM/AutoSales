@@ -40,7 +40,7 @@
                         </div>
                         <div class="error-message" *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.required">Password is required!</div>
                         <div class="edit-button">
-                            <button class="btn btn-info" routerLink="/offers/list">Back to offers</button>
+                            <a class="btn btn-info" routerLink="/offers/list">Back to offers</a>
                             <button class="btn btn-info" [disabled]="editProfileFrom.invalid">Save changes</button>
                         </div>
                     </div>
