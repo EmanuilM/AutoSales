@@ -12,6 +12,9 @@ async function register(userData,res) {
     if(phoneNumber.length < 10) { 
         throw({message:"Phone number must be at least 10 characters long!"});
     }
+    if(phoneNumber.length > 10) { 
+        throw({message:"Phone number must be 10 digits long!"});
+    }
     if(username.length < 4) { 
         throw({message:"Username must be at least 10 characters long!"});
     }

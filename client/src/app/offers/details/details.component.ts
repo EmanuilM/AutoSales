@@ -58,7 +58,6 @@ export class DetailsComponent implements OnInit {
     this.offersService.deleteOffer(id , body).subscribe(x => { 
       this.isLoading = false;
       this.router.navigate(['/']);
-      console.log(x);
     },
     err =>{
       this.isLoading = false;

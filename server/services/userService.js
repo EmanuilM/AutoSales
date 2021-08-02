@@ -39,6 +39,13 @@ async function editUserProfile(data, id) {
        throw({message : "Wrong password! Please try again"});
    }
 
+   if(data.phoneNumber.toString().length > 10) { 
+       throw({message : 'Phone number must be 10 digits long!'});
+   }
+   if(data.phoneNumber.toString().length < 10) { 
+    throw({message : 'Phone number must be 10 digits long!'});
+}
+
   return {
        username : data.username.trim(),
        email : data.email.trim(),

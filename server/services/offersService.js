@@ -74,7 +74,6 @@ async function getNext(offset, data) {
         Object.assign(query, { [x[0]]: x[1] })
     });
 
-    console.log(query);
 
     if (query.yearFrom && query.yearTo) {
         const yearFrom = query["yearFrom"];

@@ -40,7 +40,6 @@ export class EditProfileComponent implements OnInit {
 
   editProfile(data) {  
     this.submitted = true;
-    console.log(data)
     this.userService.editUserProfile(data, this.currentUser._id).subscribe(x => {
       this.router.navigate(['user/profile']);
     },

@@ -44,7 +44,6 @@ export class ListComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('scrolled');
     timer(270).subscribe(x => {
       this.isOffersLoading = true;
       this.loadNextOffers();
@@ -57,7 +56,6 @@ export class ListComponent implements OnInit {
     this.offerService.nextOffers(lastOfferIndeex,this.query).subscribe(res => {
       this.catalogue = this.catalogue.concat(res);
       this.isOffersLoading = false;
-      console.log(res);
     })
   }
 

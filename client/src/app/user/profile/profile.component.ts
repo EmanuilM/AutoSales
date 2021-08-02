@@ -22,7 +22,6 @@ export class ProfileComponent implements OnInit {
     this.isLoading = true;
     this.userService.getCurrentUser().pipe(switchMap(x => {
       this.user = x;
-      console.log(this.user)
       return this.offerService.getUserOffers()
     })).subscribe(x => { 
       this.offers = x;

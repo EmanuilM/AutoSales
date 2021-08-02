@@ -85,7 +85,6 @@ export class CreateComponent implements OnInit {
     .then(res => { 
       data.imageURLs = res.map(x => x.url);
       data.imageIds = res.map(x => x.public_id);
-      console.log(data.imageIds);
       
        this.offerService.createOfferHandler(data).subscribe(movieID => {
         this.isLoading = false;
@@ -94,7 +93,6 @@ export class CreateComponent implements OnInit {
       error => { 
         this.isLoading = false;
         this.error = error.error.message;
-        console.log(error.error.message);
       })
       
     })
@@ -112,7 +110,6 @@ export class CreateComponent implements OnInit {
       }
       return this.imagesError = '';
     })
-    console.log(Object.values(this.files));
   }
 
 }

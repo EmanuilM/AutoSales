@@ -16,9 +16,7 @@ require('./server/config/db');
 require('./server/config/express')(app);
 require('./server/config/cloudinary')();
 
-console.log(process.env.NODE_ENV);
 app.use(express.static(path.join(__dirname, 'dist/client')));
-console.log(path.join(__dirname, 'dist/client'));
 app.use(cors({
     origin: config.origin,
     credentials: true,
@@ -36,6 +34,6 @@ app.get("*", (req, res) => {
 });
 
 
- console.log(config)
-console.log(`Current port is ${config.PORT}`);
+
+
 app.listen(config.PORT , () => console.log(`Server is listening on port ${config.PORT}`));

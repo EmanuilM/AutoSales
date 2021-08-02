@@ -30,7 +30,6 @@ router.post('/edit' , async (req,res) => {
         Promise.all([
            await userModel.updateOne({_id: req.user._id} , editedUserData)
         ]).then(result => {
-            console.log(result)
            res.status(200).json({});
         }).catch((error) => { 
            res.status(400).json(error);

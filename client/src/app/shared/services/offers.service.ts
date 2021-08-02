@@ -28,7 +28,6 @@ export class OffersService {
       a += `&${name}=${value}`
       return a;
     },'?lastOffersID=' + lastOffersID);
-    console.log(query);
     
     return this.http.get<any>(`/api/offers/next` + query , {withCredentials : true});
   }

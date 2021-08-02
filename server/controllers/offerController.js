@@ -13,11 +13,8 @@ router.post('/create', isAuth , async (req, res) => {
         Promise.all([
          await  userModel.updateOne({_id : req.user._id} , {$push : {offers : createdOffer._id}})
         ]).then(result => {
-            console.log("in then");
             res.status(200).json(createdOffer._id);
         }).catch(error => {
-            console.log(error);
-            console.log('in catch');
             cloudinary.uploader.destroy(req.body.imageIds);
             return res.status(400).json({ message: err.message });
         })
