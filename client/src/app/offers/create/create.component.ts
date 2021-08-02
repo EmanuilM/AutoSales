@@ -6,6 +6,7 @@ import { OffersService } from '../../shared/services/offers.service';
 import { UploadService } from '../../shared/services/upload.service';
 import * as carsData from '../../shared/carsData.json';
 import * as yearsData from '../../shared/yearsData.json';
+import { timer } from 'rxjs';
 
 
 
@@ -92,6 +93,7 @@ export class CreateComponent implements OnInit {
       },
       error => { 
         this.isLoading = false;
+        timer(3000).subscribe(x => this.error = undefined)
         this.error = error.error.message;
       })
       
