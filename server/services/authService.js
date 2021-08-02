@@ -9,10 +9,10 @@ async function register(userData,res) {
     if(!checkAllFields) { 
         throw({message:"All fields are required!"});
     }
-    if(phoneNumber.length < 10) { 
+    if(phoneNumber.toString().length < 10) { 
         throw({message:"Phone number must be at least 10 characters long!"});
     }
-    if(phoneNumber.length > 10) { 
+    if(phoneNumber.toString().length > 10) { 
         throw({message:"Phone number must be 10 digits long!"});
     }
     if(username.length < 4) { 
