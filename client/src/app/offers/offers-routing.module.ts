@@ -9,44 +9,44 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {
-    path: 'offers',
-    children: [
-      {
-        path: 'create',
-        component: CreateComponent,
-        canActivate:[AuthGuard],
-        data : {
-          isLogged : true,
-        }
-      },
-      {
-        path: 'list',
-        component: ListComponent,
-      },
-      {
-        path: 'edit/:id',
-        component: EditComponent,
-        canActivate:[OwnerGuard],
-        data : {
-          isLogged : true,
-        }
-      },
-      {
-        path: 'details/:id',
-        component: DetailsComponent,
-      },
-      {
-        path: 'advanced-search',
-        component: AdvancedSearchComponent,
-        canActivate:[AuthGuard],
-        data : {
-          isLogged : true,
-        }
-      },
-     
+    path: "",
+    pathMatch: "full",
+    redirectTo: "/404"
+  },
+  {
+    path: 'create',
+    component: CreateComponent,
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: true,
+    }
+  },
+  {
+    path: 'list',
+    component: ListComponent,
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent,
+    canActivate: [OwnerGuard],
+    data: {
+      isLogged: true,
+    }
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent,
+  },
+  {
+    path: 'advanced-search',
+    component: AdvancedSearchComponent,
+    canActivate: [AuthGuard],
+    data: {
+      isLogged: true,
+    }
+  },
 
-    ]
-  }
+
 ]
 
 export const offersRoutingModule = RouterModule.forChild(routes);

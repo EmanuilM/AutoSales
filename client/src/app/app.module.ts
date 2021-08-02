@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { UserModule } from './user/user.module';
 import { OffersModule } from './offers/offers.module';
 import { MaterialModule } from './material/material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { MaterialModule } from './material/material.module';
     CoreModule,
     UserModule,
     OffersModule,
+    BrowserAnimationsModule,
     MaterialModule,
   ],
   providers: [],

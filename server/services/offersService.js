@@ -27,6 +27,15 @@ async function createOffer(data, userID) {
         throw ({ message: "All fields are required!" });
     }
 
+    if(power.toString().length > 4) { 
+        throw ({ message: "Power cannot be a five-digit number" });
+    }
+
+    if(description.length > 3000) { 
+        throw ({ message: "Description can't be over 3000 symbols" });
+    }
+
+
     const offer = new offerModel({
         brand,
         model,

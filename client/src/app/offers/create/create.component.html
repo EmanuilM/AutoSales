@@ -1,5 +1,6 @@
 <div class="content">
     <form [formGroup]="createOfferForm" (ngSubmit)="create(createOfferForm.value)">
+    <app-alert *ngIf="error" [message]="error"></app-alert>
         <div class="wrapper rounded bg-white">
             <div class="h3">Create your offer</div>
             <div class="form">
@@ -10,50 +11,7 @@
                             (change)="getModels(createOfferForm.value.brand)">
                             <option value="" selected hidden>Choose brand</option>
                             <option value="{{brand}}" *ngFor="let brand of brands">{{brand}}</option>
-                            <!-- <option value="Alfa Romeo">Alfa Romeo
-                            <option value="Audi">Audi
-                            <option value="BMW">BMW
-                            <option value="Bentley">Bentley
-                            <option value="Bugatti">Bugatti
-                            <option value="Citroen">Citroen
-                            <option value="Corvette">Corvette
-                            <option value="Dacia">Dacia
-                            <option value="Dodge">Dodge
-                            <option value="Ferrari">Ferrari
-                            <option value="Fiat">Fiat
-                            <option value="Ford">Ford
-                            <option value="Gmc">Gmc
-                            <option value="Great Wall">Great Wall
-                            <option value="Honda">Honda
-                            <option value="Hyundai">Hyundai
-                            <option value="Jaguar">Jaguar
-                            <option value="Jeep">Jeep
-                            <option value="Kia">Kia
-                            <option value="Lada">Lada
-                            <option value="Lamborghini">Lamborghini
-                            <option value="Land Rover">Land Rover
-                            <option value="Lexus">Lexus
-                            <option value="Maserati">Maserati
-                            <option value="Maybach">Maybach
-                            <option value="Mazda">Mazda
-                            <option value="McLaren">McLaren
-                            <option value="Mercedes-Benz">Mercedes-Benz
-                            <option value="Mini">Mini
-                            <option value="Mitsubishi">Mitsubishi
-                            <option value="Moskvich">Moskvich
-                            <option value="Nissan">Nissan
-                            <option value="Opel">Opel
-                            <option value="Peugeot">Peugeot
-                            <option value="Renault">Renault
-                            <option value="Rolls-Royce">Rolls-Royce
-                            <option value="Seat">Seat
-                            <option value="Skoda">Skoda
-                            <option value="Smart">Smart
-                            <option value="Tesla">Tesla
-                            <option value="Toyota">Toyota
-                            <option value="VW">VW
-                            <option value="Volga">Volga
-                            <option value="Volvo">Volvo  -->
+                            
                         </select>
                         <div class="error-message" *ngIf="submitted && f.brand.errors?.required">Brand field is
                             required!</div>
@@ -78,16 +36,9 @@
                             <option selected hidden>Any</option>
                             <option *ngFor="let data of years">{{data}}</option>
                         </select>
-                        <div class="error-message" *ngIf="submitted && f.year.errors?.required">Year field is required!</div>
-                    </div>
-                    <!-- <div class="col-md-6 mt-md-0 mt-3">
-                        <label>Year</label>
-                        <input formControlName="year" type="number" class="form-control" name="color"
                         <div class="error-message" *ngIf="submitted && f.year.errors?.required">Year field is required!
-                            placeholder="Enter Number" required>
                         </div>
-
-                    </div> -->
+                    </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Color</label>
                         <input formControlName="color" type="text" class="form-control" name="color" required>
@@ -100,8 +51,9 @@
                         <label>Power</label>
                         <input formControlName="power" type="number" class="form-control" name="power"
                             placeholder="Enter Number" required>
-                        <div class="error-message" *ngIf="submitted && f.power.errors?.required">Power field is
-                            required!</div>
+                        <div class="error-message" *ngIf="submitted && f.power.errors?.required">Power field is required!
+                        </div>
+
                     </div>
                     <div class="col-md-6 mt-md-0 mt-3">
                         <label>Мileage</label>
@@ -195,12 +147,10 @@
                         required!</div>
                 </div>
                 <input type="file" multiple formControlName="image" (change)="selectImages($event)">
-                <!-- <div class="button-wrapper">
-                    <span class="label">Upload File</span>
-                    <input type="file" name="upload" id="upload" class="upload-box" placeholder="Upload File" multiple (change)="selectImages($event)">
-                </div> -->
                 <div class="error-message" *ngIf="submitted && f.image.errors?.required">Image uploading is required!
                 </div>
+                <div class="error-message" *ngIf="imagesError">{{imagesError}}</div>
+                
             </div>
             <button class="btn btn-primary mt-3">Create your offer</button>
         </div>

@@ -13,8 +13,8 @@
         </mat-nav-list>
 
         <mat-nav-list *ngIf="!isAuth">
-            <a mat-list-item routerLink="/auth/login">Login</a>
-            <a mat-list-item routerLink="/auth/register">Register</a>
+            <a mat-list-item routerLink="/user/login">Login</a>
+            <a mat-list-item routerLink="/user/register">Register</a>
             <a mat-list-item routerLink="/offers/list">List Of Car</a>
         </mat-nav-list>
     </mat-sidenav>
@@ -36,8 +36,8 @@
 
             <div fxHide.xs *ngIf="!isAuth">
                 <a mat-list-item routerLink="/offers/list">List Of Cars</a>
-                <a routerLink="/auth/register">Register</a>
-                <a routerLink="/auth/login">Login</a>
+                <a routerLink="/user/register">Register</a>
+                <a routerLink="/user/login">Login</a>
             </div>
 
 

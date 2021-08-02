@@ -51,19 +51,28 @@
          </div>
          <app-catalogue-spinner *ngIf="isOffersLoading"></app-catalogue-spinner>
       </div>
-
+      
       <div class="no-content" *ngIf="catalogue.length === 0">
          
+         
          <div class="loggedIn" *ngIf="isAuth">
-            <h1>There's not offers yet!</h1>
-            <p>Be the first one and create offer right now</p>
-            <span ><a routerLink="/offers/create"></a></span>
+            <div class="offer-not-found" *ngIf="offersSearch.length !== 0 && catalogue.length === 0">
+               <h1>There's no such offers yet!</h1>
+               <p>Be the first one and create offer right now</p>
+               <span ><a routerLink="/offers/create"></a></span>
+            </div>
+            <div *ngIf="offersSearch.length === 0 && catalogue.length === 0">
+               <h1>There's no offers yet!</h1>
+               <p>Be the first one and create offer right now</p>
+               <span ><a routerLink="/offers/create"></a></span>
+            </div>
+            
          </div>
 
          <div class="loggedOut" *ngIf="!isAuth">
-            <h1>There's not offers yet!</h1>
+            <h1>There's no offers yet!</h1>
             <p>Login to your account and create start creating offers</p>
-            <span><a routerLink="/auth/login"></a></span>
+            <span><a routerLink="/user/login"></a></span>
          </div>
 
       </div>

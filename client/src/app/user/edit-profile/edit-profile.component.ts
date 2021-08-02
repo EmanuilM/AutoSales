@@ -15,15 +15,19 @@ export class EditProfileComponent implements OnInit {
   editProfileFrom : FormGroup;
   currentUser;
   error : string;
+  submitted : boolean = false;
   constructor(private fb : FormBuilder , private userService : UserService , private router : Router) { 
     this.editProfileFrom = fb.group({
-        username : ['' , [] , []],
-        email : ['' , [] , []],
-        phoneNumber : ['' , [] , []],
+        username : ['' , [Validators.required , Validators.minLength(4)] , []],
+        email : ['' , [Validators.required , Validators.email , Validators.minLength(4)] , []],
+        phoneNumber : ['' , [Validators.required , Validators.minLength(10)] , []],
         confirmPassword : ['' , [] , []],
 
     });
   }
+
+  get f() { return this.editProfileFrom.controls; }
+
 
   ngOnInit(): void {
     this.userService.getCurrentUser()
@@ -35,8 +39,9 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(data) {  
+    this.submitted = true;
     console.log(data)
-    this.userService.editUserProfile(data, this.currentUser.id).subscribe(x => {
+    this.userService.editUserProfile(data, this.currentUser._id).subscribe(x => {
       this.router.navigate(['user/profile']);
     },
     error => { 

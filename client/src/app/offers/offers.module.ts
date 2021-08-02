@@ -30,7 +30,6 @@ import { OwnerGuard } from '../shared/guards/owner.guard';
   imports: [
     CommonModule,
     HttpClientModule,
-    AppRoutingModule,
     offersRoutingModule,
     ReactiveFormsModule,
     MaterialModule,

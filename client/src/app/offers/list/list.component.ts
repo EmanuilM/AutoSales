@@ -15,6 +15,8 @@ export class ListComponent implements OnInit {
   isOffersLoading: boolean;
   isLoading: boolean = false;;
   query: Params;
+  offersSearch = []
+
 
   get isAuth(): Boolean {
     return this.userService.isAuth;
@@ -26,8 +28,8 @@ export class ListComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.route.queryParams.pipe(switchMap(x => {
-      this.query = x;
-      
+    this.query = x;
+    this.offersSearch = Object.keys(this.query);
 
       return this.offerService.nextOffers(0, x)
     })).subscribe(x => {

@@ -27,6 +27,7 @@ export class CreateComponent implements OnInit {
   currentCarsData = {};
   years = [];
   error : string;
+  imagesError : string = '';
   isLoading : boolean = false;
 
   
@@ -47,7 +48,7 @@ export class CreateComponent implements OnInit {
       populatedState: ['', [Validators.required], []],
       price: ['', [Validators.required], []],
       doors: ['', [Validators.required], []],
-      description: ['', [Validators.required, Validators.maxLength(3000)], []],
+      description: ['', [Validators.required], []],
       condition: ['', [Validators.required], []],
       transmission: ['', [Validators.required], []],
       engineType: ['', [Validators.required], []],
@@ -72,6 +73,7 @@ export class CreateComponent implements OnInit {
 
   create(data: any): any {
     this.submitted = true;
+    if(!this.imagesError) {
     if (this.createOfferForm.invalid) { return; }
     const promises = [];
     const links: any[] =  []
@@ -96,14 +98,21 @@ export class CreateComponent implements OnInit {
       })
       
     })
+  }
 
-    // subscribe(res => console.log(res) , err => console.log(err)
-    // err.error.message
     
   }
 
   selectImages(event : any)  { 
     this.files = event.target.files;
+    Object.values(this.files).map(x =>  {
+      if(!["image/jpg", "image/jpeg", "image/png"].includes(x.type)) { 
+        this.imagesError =  'Images should be in jpg/jpeg/png format!'
+        return this.imagesError;
+      }
+      return this.imagesError = '';
+    })
+    console.log(Object.values(this.files));
   }
 
 }

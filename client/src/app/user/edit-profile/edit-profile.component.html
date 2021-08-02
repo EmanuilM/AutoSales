@@ -9,27 +9,38 @@
                 </div>
             </div>
             <form [formGroup]="editProfileFrom" (ngSubmit)="editProfile(editProfileFrom.value)">
+
                 <div class="content">
                     <div class="container-wrapper">
                         <div class="container">
                             <label for="" class="title">Username</label>
-                            <input type="text" placeholder="Edit username" formControlName="username">
+                            <input formControlName="username" type="text" placeholder="Edit username">
                         </div>
+                        <div class="error-message" *ngIf="f.username.errors?.required">Username is required!</div>
+                        <div class="error-message" *ngIf="f.username.errors?.minlength">Username must be at least 4 characters long!</div>
+
+                        
                         <div class="container">
                             <label for="" class="title">Email</label>
-                            <input type="text" placeholder="Edit email" formControlName="email">
-
+                            <input formControlName="email" type="text" placeholder="Edit email">
                         </div>
+                        <div class="error-message" *ngIf="f.email.errors?.required">Email is required!</div>
+                        <div class="error-message" *ngIf="f.email.errors?.minlength">Email must be at least 4 characters long!</div>
+                        <div class="error-message" *ngIf="f.email.errors?.email">Invalid email!</div>
+
                         <div class="container">
                             <label for="" class="title">Phone Number</label>
-                            <input type="number" placeholder="Edit phone number" formControlName="phoneNumber">
+                            <input formControlName="phoneNumber" type="number" placeholder="Edit phone number">
                         </div>
+                        <div class="error-message" *ngIf="f.phoneNumber.errors?.required">Phone number is required!</div>
+                        <div class="error-message" *ngIf="f.phoneNumber.errors?.minlength">Phone number must be at least 10 characters long!</div>
                         <div class="container">
                             <label for="" class="title">Enter your password</label>
-                            <input type="password" placeholder="Enter your password" formControlName="confirmPassword">
+                            <input formControlName="confirmPassword" type="password" placeholder="Enter your password" >
                         </div>
+                        <div class="error-message" *ngIf="f.confirmPassword.errors?.required">Password is required!</div>
                         <div class="edit-button">
-                            <button class="btn btn-info">Save changes</button>
+                            <button class="btn btn-info" [disabled]="editProfileFrom.invalid">Save changes</button>
                         </div>
                     </div>
                 </div>

@@ -11,6 +11,23 @@ const routes: Routes = [
     pathMatch : 'full',
     component: HomeComponent, 
   },
+  {
+    path : 'offers',
+    loadChildren : () => import('./offers/offers.module').then(m => m.OffersModule),
+  },
+  {
+    path : 'user',
+    loadChildren : () => import('./user/user.module').then(m => m.UserModule),
+  },
+ 
+  {
+    path: '**',
+    redirectTo : '/404',
+  },
+  {
+    path : '404',
+    component : NotFoundComponent,
+  }
   
 ];
 

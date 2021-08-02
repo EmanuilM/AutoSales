@@ -7,18 +7,24 @@ const cloudinary = require("cloudinary").v2
 
 
 router.post('/create', isAuth , async (req, res) => {
-    const createdOffer = await  offerService.createOffer(req.body , req.user._id);
-    Promise.all([
-     await  userModel.updateOne({_id : req.user._id} , {$push : {offers : createdOffer._id}})
-    ]).then(result => {
-        console.log("in then");
-        res.status(200).json(createdOffer._id);
-    }).catch(error => {
-        console.log(error);
-        console.log('in catch');
-        cloudinary.uploader.destroy(req.body.imageIds);
-        return res.status(400).json({ message: err.message });
-    })
+
+    try {
+        const createdOffer = await  offerService.createOffer(req.body , req.user._id);
+        Promise.all([
+         await  userModel.updateOne({_id : req.user._id} , {$push : {offers : createdOffer._id}})
+        ]).then(result => {
+            console.log("in then");
+            res.status(200).json(createdOffer._id);
+        }).catch(error => {
+            console.log(error);
+            console.log('in catch');
+            cloudinary.uploader.destroy(req.body.imageIds);
+            return res.status(400).json({ message: err.message });
+        })
+    }catch(err) { 
+        res.status(400).json(err);
+    }
+   
            
       
 });
