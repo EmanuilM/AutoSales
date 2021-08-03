@@ -40,7 +40,7 @@ async function createOffer(data, userID) {
     if(doors > 4) { 
         throw ({ message: "Doors field cannot be over 4 " });
     }
-    if(mileage.toString().legnth > 6) { 
+    if(mileage.toString().length > 6) { 
         throw ({ message: "Mileage cannot be 7 digit number" });
     }
     if(color.length > 10) { 
@@ -144,7 +144,7 @@ async function edit(id, newData) {
     if(newData.doors > 4) { 
         throw ({ message: "Doors field cannot be over 4 " });
     }
-    if(newData.mileage.toString().legnth > 6) { 
+    if(newData.mileage.toString().length > 6) { 
         throw ({ message: "Mileage cannot be 7 digit number" });
     }
     if(newData.color.length > 10) { 
