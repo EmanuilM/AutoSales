@@ -3028,7 +3028,6 @@ class RegisterComponent {
             this.isLoading = false;
             Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["timer"])(3000).subscribe(x => this.error = undefined);
             this.error = error.error.message;
-            console.log(this.error);
         });
     }
 }

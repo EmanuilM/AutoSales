@@ -51,7 +51,6 @@ export class RegisterComponent implements OnInit {
         this.isLoading = false;
         timer(3000).subscribe(x => this.error = undefined);
         this.error = error.error.message;
-        console.log(this.error);
       }
     )
   }
