@@ -27,7 +27,6 @@ async function getCurrentUserData(id) {
 
 async function editUserProfile(data, id) {
     const user = await userModel.findById(id);
-    // console.log(data);
     if (!data.username || !data.email || !data.phoneNumber) {
         throw ({ message: "All filds are required!" });
 
@@ -39,8 +38,6 @@ async function editUserProfile(data, id) {
     const isUserExist = await userModel.findOne({username : data.username.toLowerCase().trim()});
     const isEmailExist = await userModel.findOne({email : data.email.toLowerCase().trim()});
     const isPhoneExist = await userModel.findOne({phoneNumber : data.phoneNumber.toString().trim()});
-    console.log(isUserExist)
-    // console.log(isEmailExist)
     if (!isValidPassword) {
         throw ({ message: "Wrong password! Please try again" });
     }

@@ -1,6 +1,7 @@
     
 <div class="content">
     <form [formGroup]="editForm" (ngSubmit)="edit(editForm.value)">
+    <app-alert *ngIf="error" [message]="error"></app-alert>
         <div class="wrapper rounded bg-white">
             <div class="h3">Edit offer</div>
             <div class="form">
