@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit {
     })).subscribe(x => { 
       this.offers = x;
       this.isLoading = false;
-      console.log(this.offers)
     })
    
   }

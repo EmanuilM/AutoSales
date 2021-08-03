@@ -46,7 +46,7 @@ async function createOffer(data, userID) {
     if(color.length > 10) { 
         throw ({ message: "Color field cannot be over 10 characters" });
     }
-
+    
 
     const offer = new offerModel({
         brand,
@@ -131,6 +131,25 @@ async function getNext(offset, data) {
 }
 
 async function edit(id, newData) {
+    if(newData.power.toString().length > 4) { 
+        throw ({ message: "Power cannot be a five-digit number" });
+    }
+
+    if(newData.description.length > 3000) { 
+        throw ({ message: "Description can't be over 3000 symbols" });
+    }
+    if(newData.populatedState.length > 17) { 
+        throw ({ message: "Populated place cannot be over 17 characters" });
+    }
+    if(newData.doors > 4) { 
+        throw ({ message: "Doors field cannot be over 4 " });
+    }
+    if(newData.mileage.toString().legnth > 6) { 
+        throw ({ message: "Mileage cannot be 7 digit number" });
+    }
+    if(newData.color.length > 10) { 
+        throw ({ message: "Color field cannot be over 10 characters" });
+    }
     return await offerModel.findById(id).updateOne(newData);
 }
 
