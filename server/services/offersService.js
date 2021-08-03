@@ -34,6 +34,9 @@ async function createOffer(data, userID) {
     if(description.length > 3000) { 
         throw ({ message: "Description can't be over 3000 symbols" });
     }
+    if(description.length < 10) { 
+        throw ({ message: "Description should be at least 10 characters long! " });
+    }
     if(populatedState.length > 17) { 
         throw ({ message: "Populated place cannot be over 17 characters" });
     }
@@ -45,6 +48,9 @@ async function createOffer(data, userID) {
     }
     if(color.length > 10) { 
         throw ({ message: "Color field cannot be over 10 characters" });
+    }
+    if(price.toString().length > 7) { 
+        throw ({ message: "Color field cannot be 8 digit number" });
     }
     
 
@@ -138,6 +144,9 @@ async function edit(id, newData) {
     if(newData.description.length > 3000) { 
         throw ({ message: "Description can't be over 3000 symbols" });
     }
+    if(newData.description.length < 10) { 
+        throw ({ message: "Description should be at least 10 characters long! " });
+    }
     if(newData.populatedState.length > 17) { 
         throw ({ message: "Populated place cannot be over 17 characters" });
     }
@@ -149,6 +158,9 @@ async function edit(id, newData) {
     }
     if(newData.color.length > 10) { 
         throw ({ message: "Color field cannot be over 10 characters" });
+    }
+    if(newData.price.toString().length > 7) { 
+        throw ({ message: "Color field cannot be 8 digit number" });
     }
     return await offerModel.findById(id).updateOne(newData);
 }
