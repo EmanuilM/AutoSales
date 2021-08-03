@@ -50,7 +50,7 @@ async function createOffer(data, userID) {
         throw ({ message: "Color field cannot be over 10 characters" });
     }
     if(price.toString().length > 7) { 
-        throw ({ message: "Color field cannot be 8 digit number" });
+        throw ({ message: "Price field cannot be 8 digit number" });
     }
     
 
@@ -160,7 +160,7 @@ async function edit(id, newData) {
         throw ({ message: "Color field cannot be over 10 characters" });
     }
     if(newData.price.toString().length > 7) { 
-        throw ({ message: "Color field cannot be 8 digit number" });
+        throw ({ message: "Price field cannot be 8 digit number" });
     }
     return await offerModel.findById(id).updateOne(newData);
 }
