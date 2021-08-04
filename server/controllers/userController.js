@@ -2,6 +2,8 @@ const { Router } = require('express');
 const router = Router();
 const userService = require('../services/userService');
 const userModel = require('../models/user');
+const isAuth = require('../middlewares/isAuthenticated');
+
 
 
 router.get('/creatorData', async (req, res) => {
@@ -23,7 +25,7 @@ router.get('/currentUser' , async (req,res) => {
         res.json({});
 })
 
-router.post('/edit' , async (req,res) => { 
+router.post('/edit' , isAuth , async (req,res) => { 
 
     try { 
         const editedUserData = await userService.editUserProfile(req.body.data , req.body.id);

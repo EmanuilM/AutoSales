@@ -10,13 +10,13 @@ async function register(userData,res) {
         throw({message:"All fields are required!"});
     }
     if(phoneNumber.toString().length < 10) { 
-        throw({message:"Phone number must be at least 10 characters long!"});
+        throw({message:"Phone number must be exactly 10 digits!"});
     }
     if(phoneNumber.toString().length > 10) { 
-        throw({message:"Phone number must be 10 digits long!"});
+        throw({message:"Phone number must be exactly 10 digits!"});
     }
     if(username.length < 4) { 
-        throw({message:"Username must be at least 10 characters long!"});
+        throw({message:"Username must be at least 4 characters long!"});
     }
     if(password !== rePassword) { 
         throw({message:"Passwords do not match!"});

@@ -43,10 +43,13 @@ async function editUserProfile(data, id) {
     }
 
     if (data.phoneNumber.toString().length > 10) {
-        throw ({ message: 'Phone number must be 10 digits long!' });
+        throw ({ message: 'Phone number must be exactly 10 digits!' });
     }
     if (data.phoneNumber.toString().length < 10) {
-        throw ({ message: 'Phone number must be 10 digits long!' });
+        throw ({ message: 'Phone number must be exactly 10 digits!' });
+    }
+    if (data.username.length < 4) {
+        throw ({ message: 'Username must be at least 4 characters long!' });
     }
     if (isUserExist) {
         throw ({ message: 'This username already exist!' });
