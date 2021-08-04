@@ -20,9 +20,6 @@ export class OwnerGuard implements CanActivate {
       }
       const id = state.url.slice(state.url.lastIndexOf('/') + 1);
     return this.offerService.getOfferDetails(id).pipe(switchMap(x => { 
-        console.log(x);
-        this.offer = x;
-        // return of(true);
         return this.userService.getCurrentUser()
       }),map(x => {
         if(this.offer.creator == x._id) { 
