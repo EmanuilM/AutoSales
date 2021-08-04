@@ -18,7 +18,6 @@
     background: url('/assets/advSearch.jpg');
     background-size: 100% 100%;
     height: 93.4%;
-    overflow: auto;
     padding: 17px;
 }
 
@@ -29,9 +28,10 @@ form {
 
 .wrapper {
     max-width: 800px;
-    padding: 20px 45px;
+    padding: 14px 33px;
     box-shadow: 5px 25px 35px #3535356b;
     margin: auto;
+    margin-top: -11px;
 }
 
 .wrapper label {
