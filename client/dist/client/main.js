@@ -148,7 +148,7 @@ LoginComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineCom
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\github\AutoSales\client\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\emanu\OneDrive\Desktop\git\AutoSales\client\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -3739,9 +3739,7 @@ class OwnerGuard {
         }
         const id = state.url.slice(state.url.lastIndexOf('/') + 1);
         return this.offerService.getOfferDetails(id).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["switchMap"])(x => {
-            console.log(x);
             this.offer = x;
-            // return of(true);
             return this.userService.getCurrentUser();
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["map"])(x => {
             if (this.offer.creator == x._id) {
