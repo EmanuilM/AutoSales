@@ -80,6 +80,8 @@ async function createOffer(data, userID) {
 
 async function getAllOffers() {
     return await offerModel.find();
+    
+
 }
 
 async function getDataById(id) {
@@ -133,7 +135,7 @@ async function getNext(offset, data) {
         Object.assign(query , {price : {$lte : Number(priceTo)}});
     }
 
-    return await offerModel.find(query).skip(offset).limit(12);
+    return await offerModel.find(query).sort(({ _id: -1 })).skip(offset).limit(12);
 }
 
 async function edit(id, newData) {
@@ -177,7 +179,7 @@ async function getLastOffers() {
 
 async function getCurrentUserOffers(userID) {
     const user = await userModel.findOne({ _id: userID });
-    const offers = await offerModel.find({ _id: user.offers });
+    const offers = await offerModel.find({ _id: user.offers }).sort(({ _id: -1 }));
     return offers;
 }
 
