@@ -34,6 +34,6 @@ npm run dev
 ```
 Enjoy the application on http://localhost:3000/
 
-NOTE : In case you want to run fornt end application without  server you have to navigate to client folder and install needed modules (FE application doesn't work properly without server)
+NOTE : In case you want to run front end application without  server you have to navigate to client folder and install needed modules (FE application doesn't work properly without server)
 
  
